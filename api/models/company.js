@@ -21,8 +21,14 @@ const companySchema=new mongoose.Schema({
         required:true
     },
     outlets:{
-        type:
-    }
+        type:[String]
+    },
+    investements:[     //To store the investments data
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'investments'
+        }
+    ]
 })
 
 export default mongoose.model("company",companySchema);

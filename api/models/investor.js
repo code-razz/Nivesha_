@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const investerSchema=new mongoose.Schema({
+const investorSchema=new mongoose.Schema({
     name:{
         type:String,
         required:true
@@ -8,12 +8,19 @@ const investerSchema=new mongoose.Schema({
     type:{
         type:String,
     },
-    headquarter:{
+    address:{
         type:String,
     },
-    valuation:{
+    grade:{
+        type:String
+    },
+    noOfCompInvested:{
         type:Number,
-        required:true
+        default:0
+    },
+    totalPortfolio:{
+        type:Number,
+        default:0
     }
 })
 

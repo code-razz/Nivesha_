@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const userSchema=new mongoose.Schema({
+const userAdminSchema=new mongoose.Schema({
     username:{
         type:String,
         required:true,
@@ -15,13 +15,9 @@ const userSchema=new mongoose.Schema({
         type:String,
         required:true,
     },
-    isAdmin:{
-        type:Boolean,
-        default:false
-    }
 },
 {timestamps:true}      //Adds the timestamp of the document created
 );
 
 
-export default mongoose.model("user",userSchema);
+export default mongoose.model("userAdmin",userAdminSchema);
