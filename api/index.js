@@ -1,7 +1,8 @@
 import express from "express";
-import db from "./db.js";
+import db from "./db.js";   //This will automatically call and connect to mongodb
 
-import companyRoute from "./routes/company.js"
+import companyRoute from "./routes/company.js";
+import investorRoute from "./routes/investor.js";
 
 const app=express();
 
@@ -9,10 +10,10 @@ const app=express();
 
 app.use(express.json());
 
-app.use("/api/auth",authRoute);
+//app.use("/api/auth",authRoute);
 // app.use("/api/users",usersRoute);
 app.use("/api/company",companyRoute);
-// app.use("/api/invester",investerRoute);
+app.use("/api/investor",investorRoute);
 
 
 //ERROR handling middleware

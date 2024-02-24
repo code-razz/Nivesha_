@@ -24,4 +24,4 @@ const investorSchema=new mongoose.Schema({
     }
 })
 
-export default mongoose.model("company",companySchema);
+export default mongoose.model("investor",investorSchema);
