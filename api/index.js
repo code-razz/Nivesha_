@@ -3,6 +3,7 @@ import db from "./db.js";   //This will automatically call and connect to mongod
 
 import companyRoute from "./routes/company.js";
 import investorRoute from "./routes/investor.js";
+import investmentsRoute from "./routes/investments.js";
 
 const app=express();
 
@@ -14,6 +15,7 @@ app.use(express.json());
 // app.use("/api/users",usersRoute);
 app.use("/api/company",companyRoute);
 app.use("/api/investor",investorRoute);
+app.use("/api/investments",investmentsRoute);
 
 
 //ERROR handling middleware
