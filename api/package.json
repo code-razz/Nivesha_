@@ -1,0 +1,19 @@
+{
+  "name": "nivesha_backend",
+  "version": "1.0.0",
+  "description": "Investment Banking Platform",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Raj Sah",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "mongoose": "^8.1.3",
+    "nodemon": "^3.0.3",
+    "router": "^1.3.8"
+  }
+}
