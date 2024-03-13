@@ -1,0 +1,54 @@
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+nav{
+    background-color: rgba(255, 255, 255, 0.1);
+    font-size: 20px;
+    z-index: 1;
+}
+.navbar{
+    /*background-color: grey;
+    */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-radius: 2px;
+    padding: 0px 60px;
+}
+
+nav .mid{
+    margin:auto 0px;
+}
+
+
+
+nav ul{
+    display: flex;
+    list-style-type: none;
+}
+nav ul li{
+    margin-right: 30px;
+}
+nav ul li a{
+    text-decoration: none;
+    color:black;
+}
+nav button{
+    padding: 10px;
+    border: 1px solid blueviolet;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: rgba(131, 36, 169, 0.6);
+}
+
+nav .logo{
+    margin: auto 0px;
+}
+nav .right{
+    margin-left: auto;
+    /* height: 10vh;
+    margin-bottom: 0px; */
+}
