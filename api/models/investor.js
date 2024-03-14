@@ -1,6 +1,10 @@
 import mongoose from 'mongoose';
 
 const investorSchema=new mongoose.Schema({
+    userId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'user'
+    },
     name:{
         type:String,
         required:true
@@ -21,6 +25,36 @@ const investorSchema=new mongoose.Schema({
     totalPortfolio:{
         type:Number,
         default:0
+    },
+    email:{
+        type:String,
+        required:true,
+        unique:true,
+    },
+    phone:{
+        type:String
+    },
+    about:{
+        type:String,
+        required:true
+    },
+    investements:[     //To store the investments data
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'investments'
+        }
+    ],
+    website:{
+        type:String
+    },
+    twitter:{
+        type:String
+    },
+    instagram:{
+        type:String
+    },
+    facebook:{
+        type:String
     }
 })
 

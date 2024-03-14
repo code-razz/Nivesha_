@@ -9,6 +9,12 @@ const companySchema=new mongoose.Schema({
         type:String,
         required:true
     },
+    email:{
+        type:String,
+        required:true,
+        unique:true,
+
+    },
     type:{
         type:String,
         required:true
@@ -32,7 +38,25 @@ const companySchema=new mongoose.Schema({
             type:mongoose.Schema.Types.ObjectId,
             ref:'investments'
         }
-    ]
+    ],
+    website:{
+        type:String
+    },
+    twitter:{
+        type:String
+    },
+    instagram:{
+        type:String
+    },
+    facebook:{
+        type:String
+    },
+    phone:{
+        type:String
+    },
+    about:{
+        type:String
+    }
 })
 
 export default mongoose.model("company",companySchema);
