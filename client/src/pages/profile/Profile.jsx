@@ -19,7 +19,7 @@ function Profile() {
   }else{
     innerUrl="investor/uinvest"; 
   }
-  const {data,loading,error}=useFetch(`http://localhost:8000/api/${innerUrl}/${userd._id}`); 
+  const {data,loading,error}=useFetch(`http://localhost:8000/api/${innerUrl}/${userd._id}`);   //
   // console.log(data);
 
 
