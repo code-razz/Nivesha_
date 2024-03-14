@@ -54,3 +54,13 @@ export const getAllInvestor=async(req,res,next)=>{
         next(err);
     }
 }
+
+export const getUserInvestor=async(req,res,next)=>{
+    const id=req.params.id;
+    try{
+        const gotInvestor=await investor.findOne({userId:id});
+        res.status(200).json(gotInvestor);
+    }catch(err){
+        next(err);
+    }
+}

@@ -56,6 +56,12 @@ const companySchema=new mongoose.Schema({
     },
     about:{
         type:String
+    },
+    services:{
+        type:[String]
+    },
+    bio:{
+        type:String
     }
 })
 

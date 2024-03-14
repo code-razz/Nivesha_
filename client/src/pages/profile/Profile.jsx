@@ -9,9 +9,18 @@ import useFetch from '../../hooks/useFetch.js';
 function Profile() {
 
   const {user}=useContext(AuthContext);
-  console.log(user);
-  const {data,loading,error}=useFetch(`http://localhost:8000/api/company/ucom/${user._id}`);
-  console.log(data);
+
+  const {data:userd,loading:uloading,error:uerror}=useFetch(`http://localhost:8000/api/users/${user._id}`);       //  : is used to alias name to the variables
+  // console.log(userd);
+
+  let innerUrl;
+  if(userd.isCompany){
+    innerUrl="company/ucom"; 
+  }else{
+    innerUrl="investor/uinvest"; 
+  }
+  const {data,loading,error}=useFetch(`http://localhost:8000/api/${innerUrl}/${userd._id}`); 
+  // console.log(data);
 
 
   return (
@@ -50,7 +59,7 @@ function Profile() {
                   <h4>{data.name}</h4>
 
                   <p className="text-muted font-size-sm">
-                    outlet to set
+                    {data.address || data.headquarter}
                   </p>
                   <button className="btn btn-primary">PULL</button>
           
@@ -80,7 +89,7 @@ function Profile() {
                   </svg>
                   Website
                 </h6>
-                <span className="text-secondary">https://bootdey.com</span>
+                <span className="text-secondary">{data.website}</span>
               </li>
               
               <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -101,7 +110,7 @@ function Profile() {
                   </svg>
                   Twitter
                 </h6>
-                <span className="text-secondary">@bootdey</span>
+                <span className="text-secondary">{data.twitter}</span>
               </li>
               <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                 <h6 className="mb-0">
@@ -123,7 +132,7 @@ function Profile() {
                   </svg>
                   Instagram
                 </h6>
-                <span className="text-secondary">bootdey</span>
+                <span className="text-secondary">{data.instagram}</span>
               </li>
               <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                 <h6 className="mb-0">
@@ -143,7 +152,7 @@ function Profile() {
                   </svg>
                   Facebook
                 </h6>
-                <span className="text-secondary">bootdey</span>
+                <span className="text-secondary">{data.facebook}</span>
               </li>
             </ul>
           </div>
@@ -162,14 +171,14 @@ function Profile() {
                 <div className="col-sm-3">
                   <h6 className="mb-0">Email</h6>
                 </div>
-                <div className="col-sm-9 text-secondary">fip@jukmuh.al</div>
+                <div className="col-sm-9 text-secondary">{data.email}</div>
               </div>
               <hr />
               <div className="row">
                 <div className="col-sm-3">
                   <h6 className="mb-0">Phone</h6>
                 </div>
-                <div className="col-sm-9 text-secondary">(239) 816-9029</div>
+                <div className="col-sm-9 text-secondary">{data.phone}</div>
               </div>
               <hr />
 
@@ -178,7 +187,7 @@ function Profile() {
                   <h6 className="mb-0">Address</h6>
                 </div>
                 <div className="col-sm-9 text-secondary">
-                  outlet address
+                  {data.headquarter || data.address}
                 </div>
               </div>
               <hr />

@@ -1,5 +1,5 @@
 import express from "express";
-import { createInvestor, deleteInvestor, getAllInvestor, getInvestor, updateInvestor } from "../controller/investor.js";
+import { createInvestor, deleteInvestor, getAllInvestor, getInvestor, getUserInvestor, updateInvestor } from "../controller/investor.js";
 //import {createInvestor,upsd}
 
 const router=express.Router();
@@ -18,5 +18,8 @@ router.get("/:id",getInvestor);
 
 //GET ALL Investor
 router.get("/",getAllInvestor);
+
+//GET user's Investor
+router.get("/uinvest/:id",getUserInvestor);
 
 export default router;

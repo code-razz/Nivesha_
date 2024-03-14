@@ -5,6 +5,7 @@ import companyRoute from "./routes/company.js";
 import investorRoute from "./routes/investor.js";
 import investmentsRoute from "./routes/investments.js";
 import authRoute from "./routes/auth.js";
+import usersRoute from "./routes/users.js";
 
 import cors from 'cors';
 
@@ -20,7 +21,7 @@ app.use(cors({
 app.use(express.json());
 
 app.use("/api/auth",authRoute);
-// app.use("/api/users",usersRoute);
+app.use("/api/users",usersRoute);
 app.use("/api/company",companyRoute);
 app.use("/api/investor",investorRoute);
 app.use("/api/investments",investmentsRoute);
