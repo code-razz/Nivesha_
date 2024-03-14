@@ -11,6 +11,7 @@ import {
 
 import Home from './pages/home/Home.jsx';
 import Profile from './pages/profile/Profile.jsx';
+import Login from './pages/login/Login.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,8 +21,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/profile" element={<Profile/>}/>
-        {/* <Route path="/hotels/:id" element={<Hotel/>}/>
-        <Route path="/login" element={<Login/>}/>   NOTE: All react components should be 1st letter in uppercase or error will be there */}
+        {/* <Route path="/hotels/:id" element={<Hotel/>}/> */}
+        <Route path="/login" element={<Login/>}/>   {/*NOTE: All react components should be 1st letter in uppercase or error will be there */}
       </Routes>
     </BrowserRouter>
   )

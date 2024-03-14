@@ -1,7 +1,11 @@
 import './header.css';
 import logo from "../images/logo1.png";
+import {Link} from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
+import { useContext } from 'react';
 
 function Header(){
+    const {user}=useContext(AuthContext);
     return(
         <nav>
             <section className="navbar">
@@ -29,16 +33,29 @@ function Header(){
                 </div>
                 <div>
                     <ul>
-                    <li>
-                        <a href="login.html">
-                        <button>Sign In</button>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="signup.html">
-                        <button>Sign Up</button>
-                        </a>
-                    </li>
+                        {user? <>
+                                    <li>
+                                        <Link to="/profile" style={{textDecoration:"none",color:"white"}}>
+                                            <button>{user.username}</button>
+                                        </Link>
+                                    </li>
+                                </>:
+                            (
+                                <>
+                                    <li>
+                                        <Link to="/login" style={{textDecoration:"none",color:"white"}}>
+                                            <button>Login</button>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <a href="signup.html">
+                                        <button>Sign Up</button>
+                                        </a>
+                                    </li>
+                                </>
+
+                            )}
+                    
                     </ul>
                 </div>
                 </div>

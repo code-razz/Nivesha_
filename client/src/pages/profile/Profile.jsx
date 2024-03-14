@@ -1,7 +1,19 @@
 import './profile.css';
 import Header from  '../../components/Header.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext.jsx';
+import useFetch from '../../hooks/useFetch.js';
+
 function Profile() {
+
+  const {user}=useContext(AuthContext);
+  console.log(user);
+  const {data,loading,error}=useFetch(`http://localhost:8000/api/company/ucom/${user._id}`);
+  console.log(data);
+
+
   return (
     <>
     <Header/>
@@ -35,10 +47,10 @@ function Profile() {
                   width={150}
                 />
                 <div className="mt-3">
-                  <h4>Company Name</h4>
+                  <h4>{data.name}</h4>
 
                   <p className="text-muted font-size-sm">
-                    Bay Area, San Francisco, CA
+                    outlet to set
                   </p>
                   <button className="btn btn-primary">PULL</button>
           
@@ -143,7 +155,7 @@ function Profile() {
                 <div className="col-sm-3">
                   <h6 className="mb-0">Company</h6>
                 </div>
-                <div className="col-sm-9 text-secondary">.................</div>
+                <div className="col-sm-9 text-secondary">{data.name}</div>
               </div>
               <hr />
               <div className="row">
@@ -166,7 +178,7 @@ function Profile() {
                   <h6 className="mb-0">Address</h6>
                 </div>
                 <div className="col-sm-9 text-secondary">
-                  Bay Area, San Francisco, CA
+                  outlet address
                 </div>
               </div>
               <hr />
@@ -178,14 +190,7 @@ function Profile() {
             <div className="card-body">
               <h6>About Company</h6>
               <p>
-                loremSo we have discussed multiple ways to include bootstrap in React app. We have also discussed using the react-bootstrap library. Alert, badge, navbar, dropdown, button, card, nav, form, etc. are the common components of the bootstrap library in React that you will be using frequently. Other useful components are tables, modals, tooltips, carousel, jumbotron, pagination, tabs, etc. React bootstrap is very useful in giving the layout and designing the user interface of your website. Once you will start using it, you will get to know the uses of its components. 
-
-
-Whether you're preparing for your first job interview or aiming to upskill in this ever-evolving tech landscape, GeeksforGeeks Courses are your key to success. We provide top-quality content at affordable prices, all geared towards accelerating your growth in a time-bound manner. Join the millions we've already empowered, and we're here to do the same for you. Don't miss out - check it out now!
-
-
-Get paid for your published articles and stand a chance to win tablet, smartwatch and exclusive GfG goodies! Submit your entries in Dev Scripter 2024 today.
-Participate in Three 90 Challenge! Enroll in any GeeksforGeeks course and get 90% refund by completing 90% course. Explore offer now.
+                {data.about}
               </p>
               
             </div>

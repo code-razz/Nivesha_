@@ -55,3 +55,13 @@ export const getAllCompany=async(req,res,next)=>{
         next(err);
     }
 }
+
+export const getUserCompany=async(req,res,next)=>{
+    const id=req.params.id;
+    try{
+        const gotCompany=await company.findOne({userId:id});
+        res.status(200).json(gotCompany);
+    }catch(err){
+        next(err);
+    }
+}

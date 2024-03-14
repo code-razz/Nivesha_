@@ -6,7 +6,14 @@ import investorRoute from "./routes/investor.js";
 import investmentsRoute from "./routes/investments.js";
 import authRoute from "./routes/auth.js";
 
+import cors from 'cors';
+
 const app=express();
+
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true, // If you're using cookies or authentication
+  }));
 
 //MIDDLEWARES
 

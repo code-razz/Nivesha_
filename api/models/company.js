@@ -1,6 +1,10 @@
 import mongoose from 'mongoose';
 
 const companySchema=new mongoose.Schema({
+    userId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'user'
+    },
     name:{
         type:String,
         required:true
