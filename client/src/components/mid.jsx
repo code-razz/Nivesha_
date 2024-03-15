@@ -1,6 +1,6 @@
-import './body.css';
+import './mid.css';
 
-function Body(){
+function Mid(){
     return(
         <div className="bdy">
             <div className="main">
@@ -93,4 +93,4 @@ function Body(){
     )
 }
 
-export default Body;
+export default Mid;

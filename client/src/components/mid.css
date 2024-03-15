@@ -80,7 +80,7 @@
   }
 
 
-.container{
+.mcontainer{
     border-radius: 10px;
     border: 2px solid rgb(0, 162, 81);
     /* margin: 0.5px; */
@@ -91,7 +91,7 @@
     margin-left: 10%;
     margin-right: 10%;
 }
-  .container ul li{
+  .mcontainer ul li{
     list-style-type: none;
     text-decoration: none;
     padding: 20px;
@@ -101,11 +101,11 @@
     border-radius: 10px;
   }
 
-  .container i{
+  .mcontainer i{
     margin: 20px;
     color: #05bf74;
   }
 
-  /* .container .left{
+  /* .mcontainer .left{
     
   } */

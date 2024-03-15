@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 body{
-    background: url(back.jpg);
+    background: url(../../images/back.jpg);
 }
 .background{
     width: 430px;

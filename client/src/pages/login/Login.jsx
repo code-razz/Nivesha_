@@ -1,4 +1,5 @@
 import './login.css';
+import logo from '../../images/logo1.png';
 
 import { useContext,useState } from 'react';
 import axios from 'axios';
@@ -53,7 +54,7 @@ function Login(){
       <form>
         <p style={{ fontSize: 26, marginTop: 0 }}>Login</p>
         <img
-          src="../../images/logo1.png"
+          src={logo}
           width="80px"
           style={{ margin: "0px auto", display: "flex" }}
         />

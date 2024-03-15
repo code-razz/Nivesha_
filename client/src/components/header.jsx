@@ -48,9 +48,9 @@ function Header(){
                                         </Link>
                                     </li>
                                     <li>
-                                        <a href="signup.html">
-                                        <button>Sign Up</button>
-                                        </a>
+                                        <Link to="/signup" style={{textDecoration:"none",color:"white"}}>
+                                            <button>SignUp</button>
+                                        </Link>
                                     </li>
                                 </>
 
