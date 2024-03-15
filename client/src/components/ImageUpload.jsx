@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { storage } from '../utils/firebase';
 // import {storage} from '../utils/firebase.js';
 
-const ImageUploadComponent = () => {
+const ImageUploadComponent = ({ onImageUploaded }) => {
   const [image, setImage] = useState(null);
 
   const handleChange = (e) => {
@@ -37,6 +37,7 @@ const ImageUploadComponent = () => {
           .then((url) => {
             console.log('File available at', url);
             // Do something with the URL, like saving it to a database or displaying it in your UI
+            onImageUploaded(url); // Pass the URL to the parent component
           })
           .catch((error) => {
             console.error('Download URL error:', error);
