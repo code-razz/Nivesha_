@@ -2,8 +2,21 @@ import './feed.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from '../../components/Header';
 import useFetch from '../../hooks/useFetch';
+import { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom'; // Import useHistory for navigation
 
 function Feed(){
+
+    // const history = useHistory(); // Initialize useHistory hook
+    const [selectedItem, setSelectedItem] = useState(null); // State to store the selected item
+    const navigate = useNavigate();
+
+    const handleClick = (item) => {
+        setSelectedItem(item); // Set the selected item in state
+        // history.push('/fprofile'); // Navigate to the FProfile page
+        navigate('/fprofile',{state:{item}});
+    };
 
     const {data,loading,error}=useFetch("http://localhost:8000/api/company");
 
@@ -59,8 +72,18 @@ function Feed(){
                                             <br />
                                             <br />
                                         </p>
-                                        <button className="btn btn-outline-primary btn-sm mt-2" type="button">
-                                            Know MOre
+                                        <button className="btn btn-outline-primary btn-sm mt-2" type="button" onClick={() => handleClick(item)}>
+                                        {/* <Link
+                                                to={{
+                                                    pathname: '/fprofile',
+                                                    state: { item }
+                                                }}
+                                                className="btn btn-outline-primary btn-sm mt-2"
+                                                onClick={() => handleClick(item)}
+                                            >
+                                                Know More
+                                        </Link> */}
+                                        Know More
                                         </button>
                                         </div>
                                     </div>

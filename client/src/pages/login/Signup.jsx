@@ -9,16 +9,47 @@ function Signup() {
     const [formData, setFormData] = useState({
         username: '',
         email: '',
-        password: ''
+        password: '',
+        isAdmin:'false',
+        isInvestor:'false',
+        isCompany:'false'
     });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
+        if (name == 'userType') {
+            
+            let aval,cval,ival;
+            if(value=='admin'){
+                aval="true";
+                cval="false";
+                ival="false";
+
+            }else if(value=='company'){
+                cval="true";
+                ival="false";
+                aval="false";
+            }else if(value=='investor'){
+                ival="true";
+                cval="false";
+                aval="false";
+            }
+            setFormData(prevState => ({
+                ...prevState,
+                isAdmin: aval,
+                isInvestor: ival,
+                isCompany: cval
+            }));
+        } else {
+            setFormData(prevState => ({
+                ...prevState,
+                [name]: value
+            }));
+        }
+        // console.log(name, value);
+        // console.log(formData);
     };
+    
 
     const handleImageUploaded = (url) => {
         setImageUrl(url); // Store the uploaded image URL in the state
@@ -26,12 +57,14 @@ function Signup() {
     
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
 
         // Validate password match
         if (formData.password !== formData.confirmPassword) {
             alert("Passwords do not match!");
             return;
         }
+
 
         try {
             // Send POST request to server
@@ -71,6 +104,38 @@ function Signup() {
                 <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="Password" />
                 <label htmlFor="confirmPassword">Confirm Password</label>
                 <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} placeholder="Confirm Password" />
+                <p>Please select your role</p>
+                <div className="flexrow">
+
+                    <input 
+                        type="radio" 
+                        id="company" 
+                        name="userType" 
+                        value="company" // Assign true if the user selects "Company"
+                        onChange={handleChange}
+                    />
+                    <label htmlFor="company">Company</label>
+
+                    <input 
+                        type="radio" 
+                        id="investor" 
+                        name="userType" 
+                        value="investor" // Assign true if the user selects "Investor"
+                        onChange={handleChange}
+                    />
+                    <label htmlFor="investor">Investor</label>
+
+                    <input 
+                        type="radio" 
+                        id="admin" 
+                        name="userType" 
+                        value="admin" // Assign true if the user selects "Admin"
+                        onChange={handleChange}
+                    />
+                    <label htmlFor="admin">Admin</label>
+
+                </div>
+
                 <button type="submit">Sign Up</button>
                 <div className="social">
                     <div className="go">

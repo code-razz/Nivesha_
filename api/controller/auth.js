@@ -14,8 +14,10 @@ export const register=async(req,res,next)=>{
         const newUser=new user({
             username:req.body.username,
             email:req.body.email,
-            password:hash
-            //any extra fields if sent will be automatically saved
+            password:hash,
+            isAdmin:req.body.isAdmin,
+            isCompany:req.body.isCompany,
+            isInvestor:req.body.isInvestor,
         });
         await newUser.save();
         res.status(200).send("User has been created.");

@@ -36,16 +36,18 @@ function Login(){
 
   return(
     <>
+    <div className="lbody">
+
       <title>Nivesha Log in</title>
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-      />
+        />
       <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
         rel="stylesheet"
-      />
+        />
       <link rel="stylesheet" href="login.css" />
       <div className="background">
         <div className="shape" />
@@ -57,7 +59,7 @@ function Login(){
           src={logo}
           width="80px"
           style={{ margin: "0px auto", display: "flex" }}
-        />
+          />
         <h3>NIVESHA</h3>
         <label htmlFor="username">Username</label>
         <input type="text" placeholder="Email or Phone" id="username" onChange={handleChange}/>
@@ -75,6 +77,7 @@ function Login(){
           </div>
         </div>
       </form>
+          </div>
     </>
 
   );

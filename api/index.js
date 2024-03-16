@@ -6,6 +6,7 @@ import investorRoute from "./routes/investor.js";
 import investmentsRoute from "./routes/investments.js";
 import authRoute from "./routes/auth.js";
 import usersRoute from "./routes/users.js";
+import pullReqRoute from "./routes/pullReq.js";
 
 import cors from 'cors';
 
@@ -25,6 +26,7 @@ app.use("/api/users",usersRoute);
 app.use("/api/company",companyRoute);
 app.use("/api/investor",investorRoute);
 app.use("/api/investments",investmentsRoute);
+app.use("/api/pullreq",pullReqRoute);
 
 
 //ERROR handling middleware

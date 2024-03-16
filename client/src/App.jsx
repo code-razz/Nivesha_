@@ -14,6 +14,9 @@ import Profile from './pages/profile/Profile.jsx';
 import Login from './pages/login/Login.jsx';
 import Feed from './pages/feed/Feed.jsx';
 import Signup from './pages/login/Signup.jsx';
+import CompanyReg from './pages/allRegister/CompanyReg.jsx';
+import InvestorReg from './pages/allRegister/InvestorReg.jsx';
+import FProfile from './pages/profile/FProfile.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -27,6 +30,9 @@ function App() {
         <Route path="/login" element={<Login/>}/>   {/*NOTE: All react components should be 1st letter in uppercase or error will be there */}
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/feed" element={<Feed/>}/>
+        <Route path="/companyreg" element={<CompanyReg/>}/>
+        <Route path="/investorreg" element={<InvestorReg/>}/>
+        <Route path="/fprofile" element={<FProfile/>}/>
       </Routes>
     </BrowserRouter>
   )

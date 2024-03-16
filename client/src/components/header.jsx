@@ -3,9 +3,15 @@ import logo from "../images/logo1.png";
 import {Link} from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { useContext } from 'react';
+import useFetch from '../hooks/useFetch';
 
 function Header(){
     const {user}=useContext(AuthContext);
+    if(user){
+        var {data:userd,loading:uloading,error:uerror}=useFetch(`http://localhost:8000/api/users/${user._id}`); 
+    }
+
+      
     return(
         <nav>
             <section className="navbar">
@@ -34,6 +40,13 @@ function Header(){
                 <div>
                     <ul>
                         {user? <>
+                                    {userd.isInvestor? <>
+                                                        <li>
+                                                        <Link to="/feed" style={{textDecoration:"none",color:"white"}}>
+                                                            <button>Feed</button>
+                                                        </Link>
+                                                        </li>
+                                                        </>:<></>}
                                     <li>
                                         <Link to="/profile" style={{textDecoration:"none",color:"white"}}>
                                             <button>{user.username}</button>

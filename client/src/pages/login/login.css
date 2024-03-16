@@ -5,7 +5,7 @@
     margin: 0;
     box-sizing: border-box;
 }
-body{
+.lbody{
     background: url(../../images/back.jpg);
 }
 .background{
@@ -84,6 +84,20 @@ input{
     /* margin-top: 1px; */
     font-size: 14px;
     font-weight: 300;
+}
+
+input[type=radio]{
+    width:20px;
+    margin: 1px;
+    padding: 1px;
+    height:10px;
+}
+
+.flexrow{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 ::placeholder{
     color: #e5e5e5;
