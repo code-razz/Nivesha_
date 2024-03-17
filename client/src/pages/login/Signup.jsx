@@ -3,6 +3,7 @@ import axios from 'axios';
 import './login.css';
 import logo from '../../images/logo1.png';
 import ImageUploadComponent from '../../components/ImageUpload';
+import { useNavigate } from 'react-router';
 
 function Signup() {
     const [imageUrl, setImageUrl] = useState('');
@@ -14,6 +15,7 @@ function Signup() {
         isInvestor:'false',
         isCompany:'false'
     });
+    const navigate=useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -73,18 +75,19 @@ function Signup() {
                 photo: imageUrl // Include the uploaded image URL in the form data
             });
             console.log(res.data); // You can handle success response here
+            navigate("/");
         } catch (error) {
-            console.error(error.response.data); // You can handle error response here
+            console.error(error); // You can handle error response here
         }
     };
 
     return (
-        <div className="hbody">
+        <div className="lbody">
             <div className="background">
                 <div className="shape" />
                 <div className="shape" />
             </div>
-            <form onSubmit={handleSubmit}>
+            <form className='lform' onSubmit={handleSubmit}>
                 <img
                     src={logo}
                     width="80px"
@@ -92,7 +95,7 @@ function Signup() {
                 />
                 <h3>NIVESHA</h3>
                 <div>
-                    <h1>Upload Image to Firebase Storage</h1>
+                    <h3>Sign Up</h3>
                     <ImageUploadComponent onImageUploaded={handleImageUploaded} />
                 </div>
 

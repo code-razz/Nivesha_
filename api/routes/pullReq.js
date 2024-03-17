@@ -1,5 +1,5 @@
 import express from "express";
-import { createPullReq } from "../controller/pullReq.js";
+import { createPullReq, getPullReqs } from "../controller/pullReq.js";
 
 //import {createPullReq,upsd}
 
@@ -14,8 +14,8 @@ router.post("/",createPullReq);
 // //DELETE
 // router.delete("/:id",deleteInvestments);
 
-// //GET A Investments
-// router.get("/:id",getInvestments);
+// GET A Investments
+router.get("/:id",getPullReqs);
 
 // //GET ALL Investments
 // router.get("/",getAllInvestments);

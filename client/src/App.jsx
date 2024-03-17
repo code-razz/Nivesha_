@@ -17,6 +17,7 @@ import Signup from './pages/login/Signup.jsx';
 import CompanyReg from './pages/allRegister/CompanyReg.jsx';
 import InvestorReg from './pages/allRegister/InvestorReg.jsx';
 import FProfile from './pages/profile/FProfile.jsx';
+import About from './pages/about/About.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -33,6 +34,7 @@ function App() {
         <Route path="/companyreg" element={<CompanyReg/>}/>
         <Route path="/investorreg" element={<InvestorReg/>}/>
         <Route path="/fprofile" element={<FProfile/>}/>
+        <Route path="/about" element={<About/>}/>
       </Routes>
     </BrowserRouter>
   )

@@ -1,216 +1,176 @@
-// import './regis.css';
+import { useContext, useState } from 'react';
+import './regis.css';
+import axios from 'axios';
+import { AuthContext } from '../../context/AuthContext';
+import { useNavigate } from 'react-router';
 // import './Regis.js';
-// import ScriptTag from 'react-script-tag';
-// const Demo = props => (
-// <ScriptTag type="text/javascript" src="/Regis.js" />
-// )
-// function include(file) {
- 
-//     let script = document.createElement('script');
-//     script.src = file;
-//     script.type = 'text/javascript';
-//     script.defer = true;
- 
-//     document.getElementsByTagName('head').item(0).appendChild(script);
- 
-// }
- 
-// /* Include Many js files */
-// include(
-// './Regis.js');
-
-// import Reghelper from './Regis.js';
-{/* <script type="text/javascript" src="Regis.js"></script> */}
 
 function CompanyReg(){
+    const {user}=useContext(AuthContext);
+  const [formData, setFormData] = useState({
+    userId:user._id ,
+    name: '',
+    type:'',
+    headquarter:'',
+    valuation:0,
+    outlets:[],
+    investments:[],
+    email:'',
+    phone:'',
+    about:'',
+    website:'',
+    twitter:'',
+    instagram:'',
+    facebook:'',
+    services:''
+    
+});
+const navigate=useNavigate();
+
+const handleChange = (e) => {
+    const { name, value } = e.target;
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    // console.log(name, value);
+    // console.log(formData);
+};
+
+const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+        // Send POST request to server
+        const res = await axios.post("http://localhost:8000/api/company",formData);
+        console.log(res.data); // You can handle success response here
+        navigate("/");
+    } catch (error) {
+        console.error(error); // You can handle error response here
+    }
+};
     
 
     return(
         <div className="rcontainer">
-            <div className="lgend">
-
-            
-                Company REGISTRATION
-                <div className="progress-bar">
-                <div className="step">
-                    <p>Basic INfo</p>
-                    <div className="bullet">
-                    <span>1</span>
-                    </div>
-                    <div className="check fas fa-check" />
+  <h1>Company Registration</h1>
+  <div className="form-outer">
+    <form action="#">
+      <div className="rtable">
+        <table className="rright">
+          <tbody>
+            <tr>
+              <td>Name</td>
+              <td>
+                <input type="text" name="name" value={formData.name} onChange={handleChange}/>
+              </td>
+            </tr>
+            <tr>
+              <td>Headquarter</td>
+              <td>
+                <input type="text" name="headquarter" value={formData.headquarter} onChange={handleChange}/>
+              </td>
+            </tr>
+            <tr>
+              <td>Category</td>
+              <td>
+                <input type="text" name="type" value={formData.type} onChange={handleChange}/>
+              </td>
+            </tr>
+            <tr>
+              <td>Tagline</td>
+              <td>
+                <input type="text" name="bio" value={formData.bio} onChange={handleChange}/>
+              </td>
+            </tr>
+            <tr>
+              <td>website</td>
+              <td>
+                <input type="text" name="website" value={formData.website} onChange={handleChange}/>
+              </td>
+            </tr>
+            <tr>
+              <td>Facebook</td>
+              <td>
+                <input type="text" name="facebook" value={formData.facebook} onChange={handleChange} />
+              </td>
+            </tr>
+            <tr>
+              <td>Instagram</td>
+              <td>
+                <input type="text" name="instagram" value={formData.instagram} onChange={handleChange}/>
+              </td>
+            </tr>
+            <tr>
+              <td>Twitter</td>
+              <td>
+                <input type="text" name="twitter" value={formData.twitter} onChange={handleChange} />
+              </td>
+            </tr>
+            <tr>
+              <td>Phone NO</td>
+              <td>
+                <input type="tel" name="phone" value={formData.phone} onChange={handleChange}/>
+              </td>
+            </tr>
+            <tr>
+              <td>email</td>
+              <td>
+                <input type="email" name="email" value={formData.email} onChange={handleChange}/>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table className="rright">
+          <tbody>
+            <tr>
+              <td colSpan={2}>
+                <div className="field">
+                  <textarea name="about" value={formData.about} onChange={handleChange} placeholder="Write about your company...." />
                 </div>
-                <div className="step">
-                    <p>Contact</p>
-                    <div className="bullet">
-                    <span>2</span>
-                    </div>
-                    <div className="check fas fa-check" />
-                </div>
-                <div className="step">
-                    <p>About</p>
-                    <div className="bullet">
-                    <span>3</span>
-                    </div>
-                    <div className="check fas fa-check" />
-                </div>
-                <div className="step">
-                    <p>Submit</p>
-                    <div className="bullet">
-                    <span>4</span>
-                    </div>
-                    <div className="check fas fa-check" />
-                </div>
-                </div>
-                <div className="form-outer">
-                <form action="#">
-                    <div className="page slide-page">
-                    <div className="title">Basic Info:</div>
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td>Name</td>
-                            <td>
-                            <input type="text" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Headquarter</td>
-                            <td>
-                            <input type="text" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Category</td>
-                            <td>
-                            <input type="text" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Location Available</td>
-                            <td>
-                            <input type="text" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Tagline</td>
-                            <td>
-                            <input type="text" />
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <div className="field">
-                        <button className="firstNext next">Next</button>
-                    </div>
-                    </div>
-                    <div className="page">
-                    <div className="title">Contacts</div>
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td>Website</td>
-                            <td>
-                            <input type="text" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Facebook</td>
-                            <td>
-                            <input type="text" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Instagram</td>
-                            <td>
-                            <input type="text" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Twitter</td>
-                            <td>
-                            <input type="text" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Phone NO</td>
-                            <td>
-                            <input type="tel" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>email</td>
-                            <td>
-                            <input type="email" />
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <div className="field btns">
-                        <button className="prev-1 prev">Previous</button>
-                        <button className="next-1 next">Next</button>
-                    </div>
-                    </div>
-                    <div className="page">
-                    <div className="title">ABOUT</div>
-                    <div className="field">
-                        <textarea defaultValue={"Write about your company...."} />
-                    </div>
-                    <div className="field btns" style={{ marginTop: 200 }}>
-                        <button className="prev-2 prev">Previous</button>
-                        <button className="next-2 next">Next</button>
-                    </div>
-                    </div>
-                    <div className="page">
-                    <div className="title">Documents</div>
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td>Company Logo</td>
-                            <td>
-                            <input type="file" style={{ border: 0 }} />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Registration Document</td>
-                            <td>
-                            <input type="file" style={{ border: 0 }} />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Financial Report(LFY)</td>
-                            <td>
-                            <input type="file" style={{ border: 0 }} />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Company Structure</td>
-                            <td>
-                            <input type="file" style={{ border: 0 }} />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Future Plan</td>
-                            <td>
-                            <input type="file" style={{ border: 0 }} />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Pitch(if any)</td>
-                            <td>
-                            <input type="file" style={{ border: 0 }} />
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <div className="field btns">
-                        <button className="prev-3 prev">Previous</button>
-                        <button className="submit">Submit</button>
-                    </div>
-                    </div>
-                </form>
-                </div>
-                </div>
-            </div>
+              </td>
+            </tr>
+            {/* <tr>
+              <td>Company Logo</td>
+              <td>
+                <input type="file" style={{ border: 0 }} />
+              </td>
+            </tr>
+            <tr>
+              <td>Registration Document</td>
+              <td>
+                <input type="file" style={{ border: 0 }} />
+              </td>
+            </tr>
+            <tr>
+              <td>Financial Report(LFY)</td>
+              <td>
+                <input type="file" style={{ border: 0 }} />
+              </td>
+            </tr>
+            <tr>
+              <td>Pitch(if any)</td>
+              <td>
+                <input type="file" style={{ border: 0 }} />
+              </td>
+            </tr> */}
+          </tbody>
+        </table>
+      </div>
+      <div style={{ display: "flex" }}>
+        <input type="checkbox" />
+        <p>I understand and agree with terms and condition</p>
+      </div>
+      <div className="btns">
+        <button
+          className="submit" onClick={handleSubmit}
+          style={{ width: 100, height: 35, float: "left", marginTop: 10 }}
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
     )
 
 }

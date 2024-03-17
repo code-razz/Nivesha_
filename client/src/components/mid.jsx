@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './mid.css';
 
 function Mid(){
@@ -16,8 +17,13 @@ function Mid(){
                     <br /> funding the next wave of world-changing ideas
                 </p>
                 <br />
-                <button className="inbtn">Investor </button>
-                <button className="inbtn">Company</button>
+                <Link to="/investorreg" style={{textDecoration:"none",color:"white"}}>
+                <   button className="inbtn">Investor </button>
+                </Link>
+                <Link to="/companyreg" style={{textDecoration:"none",color:"white"}}>
+                <   button className="inbtn">Company </button>
+                </Link>
+                
                 </h1>
             </div>
             {/* <div class="right">

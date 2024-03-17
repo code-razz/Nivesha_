@@ -24,16 +24,43 @@ function Header(){
                 <div className="mid">
                     <ul>
                     <li>
-                        <a href="#">Home</a>
+                        <Link to="/" style={{textDecoration:"none",color:"black"}}>
+                            Home
+                        </Link>
                     </li>
                     <li>
-                        <a href="#">About Us</a>
+                        <Link to="/about" style={{textDecoration:"none",color:"black"}}>
+                            About Us
+                        </Link>
+                        {/* <a href="#">About Us</a> */}
                     </li>
                     <li>
-                        <a href="#">Blog</a>
+                        <Link to="https://thecollegeinvestor.com/" style={{textDecoration:"none",color:"black"}}>
+                            Blog
+                        </Link>
+                        {/* <a href="#">Blog</a> */}
                     </li>
-                    <li>
-                        <a href="#">Resourses</a>
+                    <li><div className="dropdown">
+  <li>Resourses</li>
+  <div className="dropdown-content">
+    <ul>
+      <li>
+        <a href="niveshwall.html">NIVESHA WALL</a>
+      </li>
+      <li>
+        <a href="https://www.canva.com/en_gb/">Templates</a>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/user/businessinsider/videos">
+          Videos Insight
+        </a>
+      </li>
+      <li>
+        <a href="https://hbr.org/podcasts">Podcast</a>
+      </li>
+    </ul>
+</div>
+</div>
                     </li>
                     </ul>
                 </div>
@@ -42,13 +69,13 @@ function Header(){
                         {user? <>
                                     {userd.isInvestor? <>
                                                         <li>
-                                                        <Link to="/feed" style={{textDecoration:"none",color:"white"}}>
+                                                        <Link to="/feed" style={{textDecoration:"none", color:"black"}}>
                                                             <button>Feed</button>
                                                         </Link>
                                                         </li>
                                                         </>:<></>}
                                     <li>
-                                        <Link to="/profile" style={{textDecoration:"none",color:"white"}}>
+                                        <Link to="/profile" style={{textDecoration:"none", color:"black"}}>
                                             <button>{user.username}</button>
                                         </Link>
                                     </li>
@@ -56,12 +83,12 @@ function Header(){
                             (
                                 <>
                                     <li>
-                                        <Link to="/login" style={{textDecoration:"none",color:"white"}}>
+                                        <Link to="/login" style={{textDecoration:"none", color:"black"}}>
                                             <button>Login</button>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="/signup" style={{textDecoration:"none",color:"white"}}>
+                                        <Link to="/signup" style={{textDecoration:"none",color:"black"}}>
                                             <button>SignUp</button>
                                         </Link>
                                     </li>

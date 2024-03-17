@@ -39,7 +39,7 @@
     right: -30px;
     bottom: -80px;
 }
-form{
+.lform{
     margin: auto;
     /* height: auto; */
     width: 400px;
@@ -54,27 +54,27 @@ form{
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
     padding: 50px 35px;
 }
-form *{
+.lform *{
     font-family: 'Poppins',sans-serif;
     color: #090b45;
     letter-spacing: 0.5px;
     outline: none;
     border: none;
 }
-form h3{
+.lform h3{
     font-size: 32px;
     font-weight: 500;
     line-height: 42px;
     text-align: center;
 }
 
-label{
+.lform label{
     display: block;
     margin-top: 10px;
     font-size: 16px;
     font-weight: 500;
 }
-input{
+.lform input{
     display: block;
     height: 50px;
     width: 100%;
@@ -86,7 +86,7 @@ input{
     font-weight: 300;
 }
 
-input[type=radio]{
+.lform input[type=radio]{
     width:20px;
     margin: 1px;
     padding: 1px;
@@ -102,7 +102,7 @@ input[type=radio]{
 ::placeholder{
     color: #e5e5e5;
 }
-button{
+.lform button{
     margin-top: 50px;
     width: 100%;
     background-color: #ffffff;

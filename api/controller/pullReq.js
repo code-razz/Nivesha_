@@ -11,3 +11,13 @@ export const createPullReq=async(req,res,next)=>{
         next(err);
     }
 }
+
+export const getPullReqs=async(req,res,next)=>{
+    const id=req.params.id;
+    try{
+        const gotPullReqs=await pullReq.find({investorId:id});
+        res.status(200).json(gotPullReqs);
+    }catch(err){
+        next(err);
+    }
+}

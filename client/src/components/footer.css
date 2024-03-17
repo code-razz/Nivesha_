@@ -1,0 +1,39 @@
+footer{
+    color:white;
+    margin: 10px 0px 0px 0px;
+    padding: 5px 0px;
+    background-color: #1F2937;
+}
+
+.foot{
+    margin:10px 20px;
+    padding: auto;
+}
+.footl{
+    margin: auto;   
+}
+
+.footr{
+    margin: auto;
+}
+.footr i{
+    margin-right:15%;
+}
+
+.footr a{
+    color: white;
+}
+.footr button{
+    margin: 3%;
+    font-size:15px;
+    color:white;
+    background-color: blueviolet;
+    border-radius: 15px;
+    width: 120px;
+    height: 50px;
+}
+.copy{
+    background-color:#111827;
+    text-align: center;
+    padding: 1px;
+}
