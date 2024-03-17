@@ -1,11 +1,12 @@
 import './footer.css';
+import logo from '../images/logo1.png';
 
 function Footer(){
     return(
         <footer>
   <div className="flex foot">
     <div className="footl">
-      <img src="logo1.png" width="100px" />
+      <img src={logo} width="100px" />
       <p>
         <i className="fa fa-phone" /> +91XXXXXXXXXX
       </p>

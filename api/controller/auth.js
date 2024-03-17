@@ -37,7 +37,7 @@ export const login=async(req,res,next)=>{
 
         const token=jwt.sign({id:getUser._id,isInvestor:getUser.isInvestor,isCompany:getUser.isCompany,isAdmin:getUser.isAdmin},process.env.JWT);
         
-        const {password,isAdmin,isCompany,isInvestor,...otherDetails}=getUser._doc;      // This part is object destructuring syntax
+        const {password,...otherDetails}=getUser._doc;      // This part is object destructuring syntax
         res
         .cookie("access_token",token,{
             httpOnly:true

@@ -5,24 +5,32 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext.jsx';
 import useFetch from '../../hooks/useFetch.js';
+import { useNavigate } from 'react-router';
 
 function Profile() {
 
+  const {dispatch}=useContext(AuthContext);   //c -> context
   const {user}=useContext(AuthContext);
-
-  //data of logged in user
-  const {data:userd,loading:uloading,error:uerror}=useFetch(`http://localhost:8000/api/users/${user._id}`);       //  : is used to alias name to the variables
-  // console.log(userd);
+  const navigate=useNavigate();
 
   let innerUrl;
-  if(userd.isCompany){
+  
+  if(user.isCompany){
     innerUrl="company/ucom"; 
   }else{
     innerUrl="investor/uinvest"; 
   }
   //data of company or investor
-  const {data,loading,error}=useFetch(`http://localhost:8000/api/${innerUrl}/${userd._id}`);   //
+  const {data,loading,error}=useFetch(`http://localhost:8000/api/${innerUrl}/${user._id}`);   //
   // console.log(data);
+
+  //data of 
+
+  const handleLogOut=()=>{
+    dispatch({type:"LOGOUT"});
+    navigate('/');
+
+  }
 
 
   return (
@@ -63,16 +71,17 @@ function Profile() {
                   <p className="text-muted font-size-sm">
                     {data.address || data.headquarter || <></>}
                   </p>
-                  {/* {userd.isCompany &&
+                  {/* {user.isCompany &&
                     <button className="btn btn-primary">PULL</button>
                   }
                   {
-                    userd.isInvestor &&
+                    user.isInvestor &&
                     <>
                     
                     </>
                   } */}
                   
+                  <button className="btn btn-primary" onClick={handleLogOut}>Log Out</button>
           
                 </div>
               </div>

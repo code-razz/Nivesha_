@@ -7,22 +7,22 @@ import { useNavigate } from 'react-router';
 
 function CompanyReg(){
     const {user}=useContext(AuthContext);
-  const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState({
     userId:user._id ,
-    name: '',
-    type:'',
-    headquarter:'',
-    valuation:0,
-    outlets:[],
-    investments:[],
-    email:'',
-    phone:'',
-    about:'',
-    website:'',
-    twitter:'',
-    instagram:'',
-    facebook:'',
-    services:''
+    name: undefined,
+    type:undefined,
+    headquarter:undefined,
+    valuation:undefined,
+    outlets:undefined,
+    investments:undefined,
+    email:undefined,
+    phone:undefined,
+    about:undefined,
+    website:undefined,
+    twitter:undefined,
+    instagram:undefined,
+    facebook:undefined,
+    services:undefined
     
 });
 const navigate=useNavigate();

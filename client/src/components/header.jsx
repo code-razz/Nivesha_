@@ -7,9 +7,10 @@ import useFetch from '../hooks/useFetch';
 
 function Header(){
     const {user}=useContext(AuthContext);
-    if(user){
-        var {data:userd,loading:uloading,error:uerror}=useFetch(`http://localhost:8000/api/users/${user._id}`); 
-    }
+    // console.log(user.isCompany);
+    // console.log(user.isInvestor);
+    // console.log(user.isInvestor);
+    // console.log(user);
 
       
     return(
@@ -20,7 +21,7 @@ function Header(){
                     <img src={logo} width="80px" />
                     <p style={{ float: "right" }}>NIVESHA</p>
                 </div>
-                <div className="right" />
+                <div className="right"/>
                 <div className="mid">
                     <ul>
                     <li>
@@ -40,34 +41,35 @@ function Header(){
                         </Link>
                         {/* <a href="#">Blog</a> */}
                     </li>
-                    <li><div className="dropdown">
-  <li>Resourses</li>
-  <div className="dropdown-content">
-    <ul>
-      <li>
-        <a href="niveshwall.html">NIVESHA WALL</a>
-      </li>
-      <li>
-        <a href="https://www.canva.com/en_gb/">Templates</a>
-      </li>
-      <li>
-        <a href="https://www.youtube.com/user/businessinsider/videos">
-          Videos Insight
-        </a>
-      </li>
-      <li>
-        <a href="https://hbr.org/podcasts">Podcast</a>
-      </li>
-    </ul>
-</div>
-</div>
-                    </li>
+                    
+                        <div className="dropdown">
+                        <li>Resourses</li>
+                        <div className="dropdown-content">
+                            <ul>
+                            <li>
+                                <a href="niveshwall.html">NIVESHA WALL</a>
+                            </li>
+                            <li>
+                                <a href="https://www.canva.com/en_gb/">Templates</a>
+                            </li>
+                            <li>
+                                <a href="https://www.youtube.com/user/businessinsider/videos">
+                                Videos Insight
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://hbr.org/podcasts">Podcast</a>
+                            </li>
+                            </ul>
+                        </div>
+                        </div>
+                    
                     </ul>
                 </div>
                 <div>
                     <ul>
                         {user? <>
-                                    {userd.isInvestor? <>
+                                    {user.isInvestor? <>
                                                         <li>
                                                         <Link to="/feed" style={{textDecoration:"none", color:"black"}}>
                                                             <button>Feed</button>
