@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import axios from 'axios';
 import './login.css';
 import logo from '../../images/logo1.png';
 import ImageUploadComponent from '../../components/ImageUpload';
 import { useNavigate } from 'react-router';
+import { AuthContext } from '../../context/AuthContext';
 
 function Signup() {
     const [imageUrl, setImageUrl] = useState('');
@@ -16,6 +17,7 @@ function Signup() {
         isCompany:'false'
     });
     const navigate=useNavigate();
+    const {loading, error,dispatch}=useContext(AuthContext);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -56,6 +58,20 @@ function Signup() {
     const handleImageUploaded = (url) => {
         setImageUrl(url); // Store the uploaded image URL in the state
     };
+
+    const handleLogin=async()=>{
+        dispatch({type:"LOGIN_START"})
+        try{
+            const res=await axios.post("http://localhost:8000/api/auth/login", {username:formData.username,password:formData.password});
+            dispatch({type:"LOGIN_SUCCESS",payload:res.data})   // res.data::Because when the login is success, our api (i.e. backend) return all the user info
+    
+            navigate("/");
+        }catch(err){
+            console.log(err);
+            dispatch({type:"LOGIN_FAILURE",payload:err});
+        }
+      
+    }
     
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -75,6 +91,9 @@ function Signup() {
                 photo: imageUrl // Include the uploaded image URL in the form data
             });
             console.log(res.data); // You can handle success response here
+
+            handleLogin();
+
             navigate("/");
         } catch (error) {
             console.error(error); // You can handle error response here
