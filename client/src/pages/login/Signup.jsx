@@ -101,23 +101,26 @@ function Signup() {
     };
 
     return (
-        <div className="lbody">
+        <section className="lbody">
             <div className="background">
                 <div className="shape" />
                 <div className="shape" />
             </div>
-            <form className='lform' onSubmit={handleSubmit}>
+            <form className='lform flex' onSubmit={handleSubmit}>
+                <div className="logo">
+
                 <img
                     src={logo}
                     width="80px"
                     style={{ margin: "0px auto", display: "flex" }}
-                />
+                    />
                 <h3>NIVESHA</h3>
-                <div>
-                    <h3>Sign Up</h3>
+                </div>
+                <div className='imageUpload'>
+                    
                     <ImageUploadComponent onImageUploaded={handleImageUploaded} />
                 </div>
-
+                <div className='formPart'>
                 <label htmlFor="username">Name</label>
                 <input type="text" name="username" value={formData.username} onChange={handleChange} placeholder="Full Name" />
                 <label htmlFor="email">Email</label>
@@ -135,7 +138,7 @@ function Signup() {
                         name="userType" 
                         value="company" // Assign true if the user selects "Company"
                         onChange={handleChange}
-                    />
+                        />
                     <label htmlFor="company">Company</label>
 
                     <input 
@@ -144,7 +147,7 @@ function Signup() {
                         name="userType" 
                         value="investor" // Assign true if the user selects "Investor"
                         onChange={handleChange}
-                    />
+                        />
                     <label htmlFor="investor">Investor</label>
 
                     <input 
@@ -153,7 +156,7 @@ function Signup() {
                         name="userType" 
                         value="admin" // Assign true if the user selects "Admin"
                         onChange={handleChange}
-                    />
+                        />
                     <label htmlFor="admin">Admin</label>
 
                 </div>
@@ -166,9 +169,10 @@ function Signup() {
                     <div className="fb">
                         <i className="fab fa-facebook" /> Facebook
                     </div>
+                        </div>
                 </div>
             </form>
-        </div>
+        </section>
     );
 }
 

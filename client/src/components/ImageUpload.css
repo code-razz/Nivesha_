@@ -1,0 +1,19 @@
+.imgUpload{
+    margin:0px;
+    padding:0px;
+}
+
+.imgUpload img{
+    margin:4px;
+    padding:0px;
+    width: 150px;
+    border-radius: 10px;
+}
+
+.imgUpload button{
+    width: fit-content;
+    height: fit-content;
+    padding: 0px;
+    font-size: 15px;
+    margin:0px;
+}

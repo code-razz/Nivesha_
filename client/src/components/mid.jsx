@@ -48,7 +48,7 @@ function Mid(){
             </div>
             </div>
             <section>
-            <div className="container">
+            <div className="mcontainer">
                 <h2
                 style={{
                     fontSize: 40,

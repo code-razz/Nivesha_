@@ -14,17 +14,24 @@ function Profile() {
   const navigate=useNavigate();
 
   let innerUrl;
+  let pullUrl;
   
   if(user.isCompany){
     innerUrl="company/ucom"; 
+    pullUrl="comp";
+    // investCompUrl="http://localhost:8000/api/investor"
   }else{
     innerUrl="investor/uinvest"; 
+    pullUrl="invest";
   }
   //data of company or investor
-  const {data,loading,error}=useFetch(`http://localhost:8000/api/${innerUrl}/${user._id}`);   //
-  // console.log(data);
+  const {data,loading,error}=useFetch(`http://localhost:8000/api/${innerUrl}/${user._id}`);
+  const {data:pData,loading:ploading}=useFetch(`http://localhost:8000/api/pullreq/${pullUrl}/${user._id}`);
 
-  //data of 
+  if ( loading || ploading || pData==undefined || pData==null) {
+    return <div>Loading...</div>;
+  }
+  console.log(pData);
 
   const handleLogOut=()=>{
     dispatch({type:"LOGOUT"});
@@ -60,16 +67,16 @@ function Profile() {
             <div className="card-body">
               <div className="d-flex flex-column align-items-center text-center">
                 <img
-                  src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                  src={user.photo}
                   alt="Admin"
                   className="rounded-circle"
                   width={150}
                 />
                 <div className="mt-3">
-                  <h4>{data.name || <></>}</h4>
+                  <h4>{data?.name || <></>}</h4>
 
                   <p className="text-muted font-size-sm">
-                    {data.address || data.headquarter || <></>}
+                    {data?.address || data?.headquarter || <></>}
                   </p>
                   {/* {user.isCompany &&
                     <button className="btn btn-primary">PULL</button>
@@ -82,6 +89,16 @@ function Profile() {
                   } */}
                   
                   <button className="btn btn-primary" onClick={handleLogOut}>Log Out</button>
+
+                  <div className="pullReqs">{user.isInvestor && pData && pData.map((item)=>(
+                    <span>{item.companyName}<br/></span>
+                    
+                  ))}
+                  {user.company && pData && pData.map((item)=>(
+                    <span>{item.investorName}<br/></span>
+                    
+                  ))}
+                  </div>
           
                 </div>
               </div>
@@ -109,7 +126,7 @@ function Profile() {
                   </svg>
                   Website
                 </h6>
-                <span className="text-secondary">{data.website || <></>}</span>
+                <span className="text-secondary">{data?.website || <></>}</span>
               </li>
               
               <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -130,7 +147,7 @@ function Profile() {
                   </svg>
                   Twitter
                 </h6>
-                <span className="text-secondary">{data.twitter || <></>}</span>
+                <span className="text-secondary">{data?.twitter || <></>}</span>
               </li>
               <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                 <h6 className="mb-0">
@@ -152,7 +169,7 @@ function Profile() {
                   </svg>
                   Instagram
                 </h6>
-                <span className="text-secondary">{data.instagram || <></>}</span>
+                <span className="text-secondary">{data?.instagram || <></>}</span>
               </li>
               <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                 <h6 className="mb-0">
@@ -172,7 +189,7 @@ function Profile() {
                   </svg>
                   Facebook
                 </h6>
-                <span className="text-secondary">{data.facebook || <></>}</span>
+                <span className="text-secondary">{data?.facebook || <></>}</span>
               </li>
             </ul>
           </div>
@@ -184,21 +201,21 @@ function Profile() {
                 <div className="col-sm-3">
                   <h6 className="mb-0">Company</h6>
                 </div>
-                <div className="col-sm-9 text-secondary">{data.name || <></>}</div>
+                <div className="col-sm-9 text-secondary">{data?.name || <></>}</div>
               </div>
               <hr />
               <div className="row">
                 <div className="col-sm-3">
                   <h6 className="mb-0">Email</h6>
                 </div>
-                <div className="col-sm-9 text-secondary">{data.email || <></>}</div>
+                <div className="col-sm-9 text-secondary">{data?.email || <></>}</div>
               </div>
               <hr />
               <div className="row">
                 <div className="col-sm-3">
                   <h6 className="mb-0">Phone</h6>
                 </div>
-                <div className="col-sm-9 text-secondary">{data.phone || <></>}</div>
+                <div className="col-sm-9 text-secondary">{data?.phone || <></>}</div>
               </div>
               <hr />
 
@@ -207,7 +224,7 @@ function Profile() {
                   <h6 className="mb-0">Address</h6>
                 </div>
                 <div className="col-sm-9 text-secondary">
-                  {data.headquarter || data.address || <></>}
+                  {data?.headquarter || data?.address || <></>}
                 </div>
               </div>
               <hr />
@@ -219,7 +236,7 @@ function Profile() {
             <div className="card-body">
               <h6>About Company</h6>
               <p>
-                {data.about || <></>}
+                {data?.about || <></>}
               </p>
               
             </div>

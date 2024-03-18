@@ -53,7 +53,7 @@ function Login(){
         <div className="shape" />
         <div className="shape" />
       </div>
-      <form className='lform'>
+      <form className='lform' style={{width:400}}>
         <p style={{ fontSize: 26, marginTop: 0 }}>Login</p>
         <img
           src={logo}

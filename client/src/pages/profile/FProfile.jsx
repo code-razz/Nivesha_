@@ -14,42 +14,33 @@ function FProfile() {
   const data=location.state.item
 
   const {user}=useContext(AuthContext);
-
-//   console.log(location.state.item);
-
-  //data of logged in user
-  const {data:userd,loading:uloading,error:uerror}=useFetch(`http://localhost:8000/api/users/${user._id}`);       //  : is used to alias name to the variables
-  // console.log(userd);
-
-//   let innerUrl;
-//   if(userd.isCompany){
-//     innerUrl="company/ucom"; 
-//   }else{
-//     innerUrl="investor/uinvest"; 
-//   }
-//   const {data,loading,error}=useFetch(`http://localhost:8000/api/company/ucom/${selectedItem._id}`);   //
-  // console.log(data);
+  const {data:investorData,loading,error}=useFetch(`http://localhost:8000/api/investor/uinvest/${user._id}`);
 
 
+  if(loading){
+    console.log("hi");
+  }
+  const [formData, setFormData] = useState({
+      companyId:data._id,
+      companyName:data.name,
+      investorId:user._id,
+      investorName:investorData.name,
+  });
 
+  // setFormData(...prevState,investorName:investorData.name);
 
-const [formData, setFormData] = useState({
-    companyId:data._id,
-    investorId:user._id
-});
-
-const handleClick = async (e) => {
-    e.preventDefault();
-    try{
-        // Send POST request to server
-        const res = await axios.post("http://localhost:8000/api/pullreq",formData);
-        console.log(res.data); // You can handle success response here
-        alert("pull request sent to the company");
-    }catch (error) {
-        console.error(error); // You can handle error response here
-    }
-    
-};
+  const handleClick = async (e) => {
+      e.preventDefault();
+      try{
+          // Send POST request to server
+          const res = await axios.post("http://localhost:8000/api/pullreq",formData);
+          // console.log(res.data); // You can handle success response here
+          alert("pull request sent to the company");
+      }catch (error) {
+          console.error(error); // You can handle error response here
+      }
+      
+  };
 
 
   return (

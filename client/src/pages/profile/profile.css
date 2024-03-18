@@ -49,6 +49,10 @@
     height: 100%!important;
 }
 
+/* .rounded-circle{
+    margin-bottom: -5px;
+} */
+
 
 .shadow-none {
     box-shadow: none!important;

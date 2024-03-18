@@ -7,6 +7,7 @@
 }
 .lbody{
     background: url(../../images/back.jpg);
+    /* background-color: #23a2f6; */
 }
 .background{
     width: 430px;
@@ -42,7 +43,7 @@
 .lform{
     margin: auto;
     /* height: auto; */
-    width: 400px;
+    width: 900px;
     background-color: rgba(96, 47, 47, 0.13);
     position: absolute;
     transform: translate(-50%,-50%);
@@ -52,7 +53,7 @@
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255,255,255,0.1);
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
-    padding: 50px 35px;
+    padding: 35px;
 }
 .lform *{
     font-family: 'Poppins',sans-serif;
@@ -78,32 +79,64 @@
     display: block;
     height: 50px;
     width: 100%;
-    background-color: rgba(255,255,255,0.07);
+    background-color: rgba(255, 255, 255, 0.656);
     border-radius: 3px;
     padding: 0 10px;
-    /* margin-top: 1px; */
+    margin-top: 5px;
     font-size: 14px;
     font-weight: 300;
 }
 
 .lform input[type=radio]{
     width:20px;
-    margin: 1px;
+    margin: px;
     padding: 1px;
     height:10px;
+    margin-top:12px;
+    margin-left: 25px;
 }
 
+.lform input[type=file]{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 3px;
+    padding: 0 10px;
+    /* margin-top: 1px; */
+    font-size: 14px;
+    font-weight: 300;
+}
+.form .logo{
+    margin: 30px;
+}
+.lform .imageUpload{
+    margin: 30px;
+}
+.lform .formPart{
+    margin:5px;
+    /* margin-left: -10px; */
+}
+
+
 .flexrow{
+    margin:0px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
+
+.lform p{
+    margin:0px;
+    margin-top:9px;
+    margin-bottom:-8px;
+}
 ::placeholder{
-    color: #e5e5e5;
+    color: #b4a7a7;
 }
 .lform button{
-    margin-top: 50px;
+    margin-top: 10px;
     width: 100%;
     background-color: #ffffff;
     color: #080710;

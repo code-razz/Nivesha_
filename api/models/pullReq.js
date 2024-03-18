@@ -6,11 +6,18 @@ const pullReqSchema = new mongoose.Schema({
       ref: 'company',
       required: true,
     },
+    companyName:{
+      type:String
+    },
     investorId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'investor',
       required: true,
     },
+    investorName:{
+      type:String
+    }
+
   });
   
 //  const investments = mongoose.model('investments', investmentsSchema);

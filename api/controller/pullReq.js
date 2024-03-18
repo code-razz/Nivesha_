@@ -12,10 +12,20 @@ export const createPullReq=async(req,res,next)=>{
     }
 }
 
-export const getPullReqs=async(req,res,next)=>{
+export const getInvestPullReqs=async(req,res,next)=>{
     const id=req.params.id;
     try{
         const gotPullReqs=await pullReq.find({investorId:id});
+        res.status(200).json(gotPullReqs);
+    }catch(err){
+        next(err);
+    }
+}
+
+export const getCompPullReqs=async(req,res,next)=>{
+    const id=req.params.id;
+    try{
+        const gotPullReqs=await pullReq.find({companyId:id});
         res.status(200).json(gotPullReqs);
     }catch(err){
         next(err);

@@ -3,15 +3,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
-
-
-
 nav{
     background-color: rgba(255, 255, 255, 0.1);
     font-size: 20px;
     z-index: 1;
     color:black;
+    width: 100%;
+    margin: 0px;
+    font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins',sans-serif;
+    /* color: #090b45; */
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+    /* border: 2px solid red; */
 }
 .navbar{
     /*background-color: grey;
@@ -19,8 +26,16 @@ nav{
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     border-radius: 2px;
     padding: 0px 60px;
+    /* border: 2px solid red; */
+    width: 100%;
+    margin: 0px;
 }
 
+.innav{
+    /* border: 4px solid red; */
+    width: 100%;
+    margin: 0px;
+}
 nav .mid{
     margin:auto 0px;
 }
@@ -47,13 +62,10 @@ nav button{
 }
 
 nav .logo{
-    margin: auto 0px;
+    margin-right: auto;
+    margin-left: 2%;
 }
-nav .right{
-    margin-left: auto;
-    /* height: 10vh;
-    margin-bottom: 0px; */
-}
+
 
 .dropdown {
     position: relative;
@@ -84,4 +96,18 @@ nav .right{
   
   .dropdown:hover .dropdown-content {
     display:block;
+    }
+
+    .navbar .rounded-circle{
+        width: 80px;
+        margin:0px 10px;
+
+        /* float: right; */
+    }
+
+    .navbar .hbutton{
+        /* margin-right: auto; */
+        float: right;
+        margin-right: 2%;
+
     }
