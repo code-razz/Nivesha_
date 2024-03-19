@@ -18,6 +18,8 @@ import CompanyReg from './pages/allRegister/CompanyReg.jsx';
 import InvestorReg from './pages/allRegister/InvestorReg.jsx';
 import FProfile from './pages/profile/FProfile.jsx';
 import About from './pages/about/About.jsx';
+import InvestorPage from './pages/investorCompany/investorp.jsx';
+import CompanyPage from './pages/investorCompany/companyp.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -35,6 +37,8 @@ function App() {
         <Route path="/investorreg" element={<InvestorReg/>}/>
         <Route path="/fprofile" element={<FProfile/>}/>
         <Route path="/about" element={<About/>}/>
+        <Route path="/investorp" element={<InvestorPage/>}/>
+        <Route path="/companyp" element={<CompanyPage/>}/>
       </Routes>
     </BrowserRouter>
   )

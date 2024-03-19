@@ -7,8 +7,17 @@ import { useNavigate } from 'react-router';
 
 function CompanyReg(){
     const {user}=useContext(AuthContext);
+    
+    const reload=()=>{
+      window.location.reload(); // Reload the current page
+
+    }
+
+    if(!user?._id){
+
+      reload();
+    }
     const [formData, setFormData] = useState({
-    userId:user._id ,
     name: undefined,
     type:undefined,
     headquarter:undefined,
@@ -36,12 +45,13 @@ const handleChange = (e) => {
     // console.log(name, value);
     // console.log(formData);
 };
+// console.log(user._id);
 
 const handleSubmit = async (e) => {
     e.preventDefault();
     try {
         // Send POST request to server
-        const res = await axios.post("http://localhost:8000/api/company",formData);
+        const res = await axios.post("http://localhost:8000/api/company",{...formData,userId:user._id});
         console.log(res.data); // You can handle success response here
         navigate("/");
     } catch (error) {
@@ -74,6 +84,12 @@ const handleSubmit = async (e) => {
               <td>Category</td>
               <td>
                 <input type="text" name="type" value={formData.type} onChange={handleChange}/>
+              </td>
+            </tr>
+            <tr>
+              <td>Valuaton</td>
+              <td>
+                <input type="text" name="valuation" value={formData.valuation} onChange={handleChange}/>
               </td>
             </tr>
             <tr>

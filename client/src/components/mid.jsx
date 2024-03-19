@@ -1,7 +1,11 @@
 import { Link } from 'react-router-dom';
 import './mid.css';
+import { useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
 
 function Mid(){
+
+    const {user}=useContext(AuthContext);
     return(
         <div className="bdy">
             <div className="main">
@@ -17,12 +21,50 @@ function Mid(){
                     <br /> funding the next wave of world-changing ideas
                 </p>
                 <br />
-                <Link to="/investorreg" style={{textDecoration:"none",color:"white"}}>
+
+                <Link to="/investorp" style={{textDecoration:"none",color:"white"}}>
+                                <button className="inbtn">Investor </button>
+                            </Link>
+                            <Link to="/companyp" style={{textDecoration:"none",color:"white"}}>
+                                <button className="inbtn">Company </button>
+                            </Link>
+
+                {user?((user.isInvestor)? (
+                                            <Link to="/investorreg" style={{textDecoration:"none",color:"white"}}>
+                                                <button className="inbtn">Register </button>
+                                            </Link>
+                                        ):(
+                                            <Link to="/companyreg" style={{textDecoration:"none",color:"white"}}>
+                                                <button className="inbtn">Register </button>
+                                            </Link>
+                                        )):(<></>)}
+
+                {/* {user? ((user.isInvestor)? (
+                                            <Link to="/investorreg" style={{textDecoration:"none",color:"white"}}>
+                                                <button className="inbtn">Investor </button>
+                                            </Link>
+                                        ):(
+                                            <Link to="/companyreg" style={{textDecoration:"none",color:"white"}}>
+                                                <button className="inbtn">Company </button>
+                                            </Link>
+                                        )
+                        ):(
+                            <>
+                            <Link to="/" style={{textDecoration:"none",color:"white"}}>
+                                <button className="inbtn">Investor </button>
+                            </Link>
+                            <Link to="/" style={{textDecoration:"none",color:"white"}}>
+                                <button className="inbtn">Company </button>
+                            </Link>
+                            </>
+                        )
+                } */}
+                {/* <Link to="/investorreg" style={{textDecoration:"none",color:"white"}}>
                 <   button className="inbtn">Investor </button>
                 </Link>
                 <Link to="/companyreg" style={{textDecoration:"none",color:"white"}}>
                 <   button className="inbtn">Company </button>
-                </Link>
+                </Link> */}
                 
                 </h1>
             </div>

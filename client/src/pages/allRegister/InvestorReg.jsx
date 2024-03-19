@@ -7,22 +7,31 @@ import { useNavigate } from 'react-router';
 
 function InvestorReg(){
   const {user}=useContext(AuthContext);
+
+  const reload=()=>{
+    window.location.reload(); // Reload the current page
+
+  }
+
+  if(!user?._id){
+
+    reload();
+  }
   const [formData, setFormData] = useState({
-    userId:user._id ,
-    name: '',
-    type:'',
-    address:'',
-    grade:'',
-    noOfCompInvested:0,
-    totalPortfolio:0,
-    email:'',
-    phone:'',
-    about:'',
+    name: undefined,
+    type:undefined,
+    address:undefined,
+    grade:undefined,
+    noOfCompInvested:undefined,
+    totalPortfolio:undefined,
+    email:undefined,
+    phone:undefined,
+    about:undefined,
     investements:[],
-    website:'',
-    twitter:'',
-    instagram:'',
-    facebook:''
+    website:undefined,
+    twitter:undefined,
+    instagram:undefined,
+    facebook:undefined
     
 });
 const navigate=useNavigate();
@@ -41,7 +50,7 @@ const handleSubmit = async (e) => {
     e.preventDefault();
     try {
         // Send POST request to server
-        const res = await axios.post("http://localhost:8000/api/investor",formData);
+        const res = await axios.post("http://localhost:8000/api/investor",{...formData,userId:user._id});
         console.log(res.data); // You can handle success response here
         navigate("/");
     } catch (error) {

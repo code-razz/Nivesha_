@@ -8,7 +8,12 @@ import authRoute from "./routes/auth.js";
 import usersRoute from "./routes/users.js";
 import pullReqRoute from "./routes/pullReq.js";
 
+import dotenv from 'dotenv';
+dotenv.config();
+
 import cors from 'cors';
+
+const PORT=process.env.PORT || 8000;
 
 const app=express();
 
@@ -41,6 +46,6 @@ app.use((err,req,res,next)=>{
     })
 })
 
-app.listen(8000,()=>{
-    console.log("Nivesha Backend listenning at 8000")
+app.listen(PORT,()=>{
+    console.log("Nivesha Backend listenning at ",PORT)
 });

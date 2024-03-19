@@ -6,6 +6,9 @@ import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext.jsx';
 import useFetch from '../../hooks/useFetch.js';
 import { useNavigate } from 'react-router';
+import axios from 'axios';
+import nullProfile from '../../images/nullProfile.jpeg'
+import { Link } from 'react-router-dom';
 
 function Profile() {
 
@@ -26,11 +29,12 @@ function Profile() {
   }
   //data of company or investor
   const {data,loading,error}=useFetch(`http://localhost:8000/api/${innerUrl}/${user._id}`);
-  const {data:pData,loading:ploading}=useFetch(`http://localhost:8000/api/pullreq/${pullUrl}/${user._id}`);
+  const {data:pData,loading:ploading}=useFetch(`http://localhost:8000/api/pullreq/${pullUrl}/${data._id}`);
 
   if ( loading || ploading || pData==undefined || pData==null) {
     return <div>Loading...</div>;
   }
+  console.log(data);
   console.log(pData);
 
   const handleLogOut=()=>{
@@ -38,7 +42,22 @@ function Profile() {
     navigate('/');
 
   }
+  const handleDeleteAccount=async()=>{
+    const userId=user._id;
+    // e.preventDefault();
+    try {
+      // Send POST request to server
+      const res = await axios.delete(`http://localhost:8000/api/users/${userId}`);
+      console.log(res.data); // You can handle success response here
+      dispatch({type:"LOGOUT"});
+      navigate("/");
+    } catch (error) {
+        console.error(error); // You can handle error response here
+    }
+    // navigate('/');
 
+  }
+  
 
   return (
     <>
@@ -66,12 +85,19 @@ function Profile() {
           <div className="card">
             <div className="card-body">
               <div className="d-flex flex-column align-items-center text-center">
-                <img
-                  src={user.photo}
-                  alt="Admin"
-                  className="rounded-circle"
-                  width={150}
-                />
+                {user.photo? (<img
+                              src={user.photo}
+                              alt="Admin"
+                              className="rounded-circle"
+                              width={150}
+                            />):(
+                              <img
+                              src={nullProfile}
+                              alt="Admin"
+                              className="rounded-circle"
+                              width={150}
+                            />
+                            )}
                 <div className="mt-3">
                   <h4>{data?.name || <></>}</h4>
 
@@ -88,17 +114,23 @@ function Profile() {
                     </>
                   } */}
                   
-                  <button className="btn btn-primary" onClick={handleLogOut}>Log Out</button>
+                  {!data && ((user?.isInvestor)? (
+                                            <Link to="/investorreg" style={{textDecoration:"none",color:"white"}}>
+                                                <button style={{marginRight:10}} className="btn btn-primary">Register</button>
+                                            </Link>
+                                        ):(
+                                            <Link to="/companyreg" style={{textDecoration:"none",color:"white"}}>
+                                                <button style={{marginRight:20}} className="btn btn-primary">Register</button>
+                                            </Link>
+                                        )
+                        )}
+                  <button style={{marginRight:20}} className="btn btn-primary" onClick={handleLogOut}>Log Out</button>
+                  <button style={{marginLeft:0,backgroundColor:'red',fontSize:6}} className="btn btn-primary" onClick={handleDeleteAccount}>Delete Account</button>
 
-                  <div className="pullReqs">{user.isInvestor && pData && pData.map((item)=>(
-                    <span>{item.companyName}<br/></span>
-                    
-                  ))}
-                  {user.company && pData && pData.map((item)=>(
-                    <span>{item.investorName}<br/></span>
-                    
-                  ))}
-                  </div>
+                  {/* <button style={{marginRight:20}} className="btn btn-primary" onClick={handleLogOut}>Log Out</button>
+                  <button style={{marginLeft:20,backgroundColor:'red'}} className="btn btn-primary" onClick={handleDeleteAccount}>Delete Account</button> */}
+
+                  
           
                 </div>
               </div>
@@ -238,6 +270,22 @@ function Profile() {
               <p>
                 {data?.about || <></>}
               </p>
+              
+            </div>
+          </div>
+          <div className="card mb-3">
+            <div className="card-body">
+              <h6>My Pull requests</h6>
+              <div className="pullReqs">
+                {user.isInvestor && pData && pData.map((item)=>(
+                    <span>{item.companyName}<br/></span>
+                    
+                  ))}
+                  {user.isCompany && pData && pData.map((item)=>(
+                    <span>{item.investorName}<br/></span>
+                    
+                  ))}
+                  </div>
               
             </div>
           </div>

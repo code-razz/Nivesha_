@@ -7,6 +7,7 @@ import { AuthContext } from '../../context/AuthContext.jsx';
 import useFetch from '../../hooks/useFetch.js';
 import { useLocation } from 'react-router';
 import axios from 'axios';
+import nullProfile from '../../images/nullProfile.jpeg'
 
 function FProfile() {
   
@@ -18,23 +19,34 @@ function FProfile() {
 
 
   if(loading){
-    console.log("hi");
+    console.log("loading");
   }
+
+  // while(!investorData){
+  //   console.log("inve");
+  // }
+  // console.log(investorData);
+  // console.log(investorData.name);
+  // const a=investorData.name;
   const [formData, setFormData] = useState({
-      companyId:data._id,
-      companyName:data.name,
-      investorId:user._id,
-      investorName:investorData.name,
+    companyId:data._id,
+    companyName:data.name,
   });
+  // console.log(formData);
 
   // setFormData(...prevState,investorName:investorData.name);
 
   const handleClick = async (e) => {
       e.preventDefault();
+    //   setFormData(prevState => ({
+    //     ...prevState,
+    //     investorName: a
+    // }));
+    // console.log(formData);
       try{
           // Send POST request to server
-          const res = await axios.post("http://localhost:8000/api/pullreq",formData);
-          // console.log(res.data); // You can handle success response here
+          const res = await axios.post("http://localhost:8000/api/pullreq",{...formData,investorName:investorData.name,investorId:investorData._id});
+          console.log(res.data); // You can handle success response here
           alert("pull request sent to the company");
       }catch (error) {
           console.error(error); // You can handle error response here
@@ -69,12 +81,19 @@ function FProfile() {
           <div className="card">
             <div className="card-body">
               <div className="d-flex flex-column align-items-center text-center">
-                <img
-                  src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                  alt="Admin"
-                  className="rounded-circle"
-                  width={150}
-                />
+              {user.photo? (<img
+                              src={user.photo}
+                              alt="Admin"
+                              className="rounded-circle"
+                              width={150}
+                            />):(
+                              <img
+                              src={nullProfile}
+                              alt="Admin"
+                              className="rounded-circle"
+                              width={150}
+                            />
+                            )}
                 <div className="mt-3">
                   <h4>{data.name}</h4>
 

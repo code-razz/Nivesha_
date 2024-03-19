@@ -14,6 +14,7 @@ export const updateUser=async(req,res,next)=>{
 };
 
 export const deleteUser=async(req,res,next)=>{
+    const id=req.params.id;
     try{
         const deletedUser=await user.findByIdAndDelete(req.params.id);
         res.status(200).json("User has been deleted");

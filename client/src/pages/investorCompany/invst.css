@@ -1,0 +1,38 @@
+.incontainer {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative; /* Added for positioning the pointer dots */
+  }
+
+  .inservices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+    margin-top: 20px;
+  }
+
+  .inservice {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+  }
+
+  .inservice i {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+
+  .inservice h3 {
+    margin-top: 0;
+  }
+  .partnertag
+  {
+    text-align: center;
+    margin: 3px;
+  }
