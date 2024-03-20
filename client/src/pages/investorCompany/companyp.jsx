@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBriefcase, faChartBar, faUsers, faTasks } from '@fortawesome/free-solid-svg-icons';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import CompanySlider from '../../components/companySlider';
+import CompanySlider from '../../components/CompanySlider';
 
 const CompanyPage = () => {
   const services = [

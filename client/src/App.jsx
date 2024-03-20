@@ -18,8 +18,10 @@ import CompanyReg from './pages/allRegister/CompanyReg.jsx';
 import InvestorReg from './pages/allRegister/InvestorReg.jsx';
 import FProfile from './pages/profile/FProfile.jsx';
 import About from './pages/about/About.jsx';
-import InvestorPage from './pages/investorCompany/investorp.jsx';
-import CompanyPage from './pages/investorCompany/companyp.jsx';
+import InvestorPage from './pages/investorCompany/Investorp.jsx';
+import CompanyPage from './pages/investorCompany/Companyp.jsx';
+
+
 
 function App() {
   const [count, setCount] = useState(0)

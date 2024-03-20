@@ -1,7 +1,7 @@
 import './invst.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartLine,faHandshake,faSearchDollar,faHandHoldingUsd,faFileAlt,faCoins,faPieChart } from '@fortawesome/free-solid-svg-icons';
-import InvestorSlider from '../../components/investorSlider';
+import InvestorSlider from '../../components/InvestorSlider';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 

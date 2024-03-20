@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import firebase from "firebase/compat/app";
 import "firebase/compat/storage";
 
+// import dotenv from 'dotenv';
+// dotenv.config();
+
+const FIREBASE_KEY=import.meta.env.FIREBASE_KEY;
+
 const firebaseConfig = {
-  apiKey: "AIzaSyDT76UlXH5tldOJuWE5lMx1UpK8zO3QEA4",
+  apiKey: FIREBASE_KEY,
   authDomain: "nivesha-759e3.firebaseapp.com",
   projectId: "nivesha-759e3",
   storageBucket: "nivesha-759e3.appspot.com",
