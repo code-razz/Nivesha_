@@ -29,7 +29,8 @@ function Profile() {
   }
   //data of company or investor
   const {data,loading,error}=useFetch(`http://localhost:8000/api/${innerUrl}/${user._id}`);
-  const {data:pData,loading:ploading}=useFetch(`http://localhost:8000/api/pullreq/${pullUrl}/${data._id}`);
+  let dataID=(data)?data._id : user._id;
+  const {data:pData,loading:ploading}=useFetch(`http://localhost:8000/api/pullreq/${pullUrl}/${dataID}`);
 
   if ( loading || ploading || pData==undefined || pData==null) {
     return <div>Loading...</div>;
