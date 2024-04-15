@@ -82,13 +82,13 @@ function Header(){
                                                 {user.photo? (<img
                                                             src={user.photo}
                                                             alt="Admin"
-                                                            className="rounded-circle"
+                                                            className="prof-pic rounded-circle"
                                                             width={150}
                                                             />):(
                                                                 <img
                                                                 src={nullProfile}
                                                                 alt="Admin"
-                                                                className="rounded-circle"
+                                                                className=" prof-pic rounded-circle"
                                                                 width={150}
                                                                 />
                                                     )}

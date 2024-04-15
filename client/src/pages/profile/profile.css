@@ -57,3 +57,9 @@
 .shadow-none {
     box-shadow: none!important;
 }
+.prof-pic2{
+    /* width:100px; */
+    width: 150px;
+    height:150px;
+
+}
