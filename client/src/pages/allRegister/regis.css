@@ -1,17 +1,25 @@
 .rcontainer{
   background: url(../../images/back.jpg);
-  background-repeat: repeat;
+  
+  background-repeat: no-repeat;
+  background-size: 100vw;
   height: 100vh;
+  color: rgb(0, 0, 0);
+  /* width: 130vw; */
+  
+  /* border-radius: 20px; */
+}
+
+.rmain{
+  margin: auto;
+  padding-top: 4%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.rh1{
-
-}
-
 .regbody{
+  
   margin: 0;
   padding: 0;
   outline: none;
@@ -25,24 +33,34 @@
 
 .rtable
 {
+  border-radius: 20px;
   display: flex;
   /* background: gray; */
-  background-color: rgba(96, 47, 47, 0.23);
+  background-color: rgba(86, 123, 165, 0.63);
   margin: 40px;
 
 }
 
 .rright input{
   margin: 7px;
+  border: 0px solid black;
   border-radius: 3px;
 }
 
 .rright
 {
   margin: 30px;
+  
 }
 .rright textarea
 {
+  border: 0px solid black;
+  border-radius: 4px;
   height: 200px;
   width: 400px;
+}
+
+.btns button{
+  border: 0px solid black;
+  border-radius: 5px;
 }

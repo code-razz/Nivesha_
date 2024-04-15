@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router';
 // import './Regis.js';
 
 function InvestorReg(){
+  const [errors,setErrors]=useState(undefined);
   const {user}=useContext(AuthContext);
 
   const reload=()=>{
@@ -54,121 +55,127 @@ const handleSubmit = async (e) => {
         console.log(res.data); // You can handle success response here
         navigate("/");
     } catch (error) {
-        console.error(error); // You can handle error response here
+      setErrors(error.response.data);
+      console.log(error.response.data);
     }
 };
     return(
         <>
         <div className="rcontainer">
+          <div className="rmain">
           <h1 className="rh1">
 
-          Investor Registration
-          </h1>
-    <div className="form-outer">
-      <form method='post'>
-        <div className="page slide-page">
-          <div className="rtable">
-            <table className="rright">
-              <tbody>
-                <tr>
-                  <td>Name</td>
-                  <td>
-                    <input type="text" name="name" value={formData.name} onChange={handleChange}/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Address</td>
-                  <td>
-                    <input type="text" name="address" value={formData.address} onChange={handleChange}/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Grade</td>
-                  <td>
-                    <input type="text" name="grade" value={formData.grade} onChange={handleChange} />
-                  </td>
-                </tr>
-                <tr>
-                  <td>No of Investment(till)</td>
-                  <td>
-                    <input type="text" name="noOfCompInvested" value={formData.noOfCompInvested} onChange={handleChange}/>
-                  </td>
-                </tr>
-                
-                <tr>
-                  <td>Facebook</td>
-                  <td>
-                    <input type="text" name="facebook" value={formData.facebook} onChange={handleChange}/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Instagram</td>
-                  <td>
-                    <input type="text"  name="instagram" value={formData.instagram} onChange={handleChange} />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Twitter</td>
-                  <td>
-                    <input type="text" name="twitter" value={formData.twitter} onChange={handleChange} />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Phone NO</td>
-                  <td>
-                    <input type="tel" name="phone" value={formData.phone} onChange={handleChange}/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>email</td>
-                  <td>
-                    <input type="email" name="email" value={formData.email} onChange={handleChange}/>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <table className="rright">
-              <tbody>
-                <tr>
-                  <td colSpan={2}>
-                    <div className="field">
-                      <textarea name="about" value={formData.about} onChange={handleChange} placeholder="Write about your investment strategy...." />
-                    </div>
-                  </td>
-                </tr>
-                {/* <tr>
-                  <td>Photo</td>
-                  <td>
-                    <input type="file" style={{ border: 0 }} />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Portfolio</td>
-                  <td>
-                    <input type="file" style={{ border: 0 }} />
-                  </td>
-                </tr> */}
-              </tbody>
-            </table>
+Investor Registration
+</h1>
+<div className="form-outer">
+<form method='post'>
+<div className="page slide-page">
+<div className="rtable">
+  <table className="rright">
+    <tbody>
+      <tr>
+        <td>Name</td>
+        <td>
+          <input type="text" name="name" value={formData.name} onChange={handleChange}/>
+        </td>
+      </tr>
+      <tr>
+        <td>Address</td>
+        <td>
+          <input type="text" name="address" value={formData.address} onChange={handleChange}/>
+        </td>
+      </tr>
+      <tr>
+        <td>Grade</td>
+        <td>
+          <input type="text" name="grade" value={formData.grade} onChange={handleChange} />
+        </td>
+      </tr>
+      <tr>
+        <td>No of Investment(till)</td>
+        <td>
+          <input type="text" name="noOfCompInvested" value={formData.noOfCompInvested} onChange={handleChange}/>
+        </td>
+      </tr>
+      
+      <tr>
+        <td>Facebook</td>
+        <td>
+          <input type="text" name="facebook" value={formData.facebook} onChange={handleChange}/>
+        </td>
+      </tr>
+      <tr>
+        <td>Instagram</td>
+        <td>
+          <input type="text"  name="instagram" value={formData.instagram} onChange={handleChange} />
+        </td>
+      </tr>
+      <tr>
+        <td>Twitter</td>
+        <td>
+          <input type="text" name="twitter" value={formData.twitter} onChange={handleChange} />
+        </td>
+      </tr>
+      <tr>
+        <td>Phone NO</td>
+        <td>
+          <input type="tel" name="phone" value={formData.phone} onChange={handleChange}/>
+        </td>
+      </tr>
+      <tr>
+        <td>email</td>
+        <td>
+          <input type="email" name="email" value={formData.email} onChange={handleChange}/>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table className="rright">
+    <tbody>
+      <tr>
+        <td colSpan={2}>
+          <div className="field">
+            <textarea name="about" value={formData.about} onChange={handleChange} placeholder="Write about your investment strategy...." />
           </div>
-          <div style={{ display: "flex" }}>
-            <input type="checkbox" />
-            <p style={{ marginTop:"15px" }}>I understand and agree with terms and condition</p>
-          </div>
-          <div className="field btns">
-            {/* <button class="prev-3 prev">Previous</button> */}
-            <button
-              onClick={handleSubmit}
-              className="submit"
-              style={{ width: 100, height: 35, float: "left", marginTop: 10 }}
-            >
-              Submit
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
+        </td>
+      </tr>
+      {/* <tr>
+        <td>Photo</td>
+        <td>
+          <input type="file" style={{ border: 0 }} />
+        </td>
+      </tr>
+      <tr>
+        <td>Portfolio</td>
+        <td>
+          <input type="file" style={{ border: 0 }} />
+        </td>
+      </tr> */}
+    </tbody>
+  </table>
 </div>
+<div style={{ display: "flex" }}>
+  <input type="checkbox" />
+  <p style={{ marginTop:"15px" }}>I understand and agree with terms and condition</p>
+</div>
+{errors && <span style={{color:'red'}}>{errors.message}</span>}
+<div className="field btns">
+  {/* <button class="prev-3 prev">Previous</button> */}
+  <button
+    onClick={handleSubmit}
+    className="submit"
+    style={{ width: 100, height: 35, float: "left", marginTop: 10 }}
+  >
+    Submit
+  </button>
+</div>
+</div>
+</form>
+</div>
+
+          </div>
+          
+        </div>
         </>
     )
 }

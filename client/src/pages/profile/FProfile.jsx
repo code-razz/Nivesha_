@@ -9,9 +9,12 @@ import { useLocation } from 'react-router';
 import axios from 'axios';
 import nullProfile from '../../images/nullProfile.jpeg'
 
+import emailjs from '@emailjs/browser';
+// import 'https://smtpjs.com/v3/smtp.js'
+
 function FProfile() {
   
-  const location = useLocation();   //gets data from previous click
+  const location = useLocation();   //gets company data from previous click
   const data=location.state.item
 
   const {user}=useContext(AuthContext);
@@ -35,9 +38,43 @@ function FProfile() {
   // console.log(formData);
 
   // setFormData(...prevState,investorName:investorData.name);
+  emailjs.init({
+    publicKey: 'ZMQAMitp_1iWDDcCr',
+    // Do not allow headless browsers
+    blockHeadless: true,
+    blockList: {
+      // Block the suspended emails
+      list: ['foo@emailjs.com', 'bar@emailjs.com'],
+      // The variable contains the email address
+      watchVariable: 'userEmail',
+    },
+    limitRate: {
+      // Set the limit rate for the application
+      id: 'app',
+      // Allow 1 request per 10s
+      throttle: 10000,
+    },
+  });
 
   const handleClick = async (e) => {
       e.preventDefault();
+      var templateParams = {
+        //from_name: 'James',
+        to_name:data.name,
+        to_email:data.email,
+        invest_name:investorData.name
+        // message: 'Check this out!',
+        //reply_to:"rajsah5557@gmail.com"
+      };
+      
+      emailjs.send('darkService', 'template_nqbtivs', templateParams).then(
+        (response) => {
+          console.log('SUCCESS!', response.status, response.text);
+        },
+        (error) => {
+          console.log('FAILED...', error);
+        },
+      );
     //   setFormData(prevState => ({
     //     ...prevState,
     //     investorName: a
