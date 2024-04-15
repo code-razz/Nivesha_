@@ -28,44 +28,6 @@ function Mid(){
                             <Link to="/companyp" style={{textDecoration:"none",color:"white"}}>
                                 <button className="inbtn">Company </button>
                             </Link>
-
-                {/* {user?((user.isInvestor)? (
-                                            <Link to="/investorreg" style={{textDecoration:"none",color:"white"}}>
-                                                <button className="inbtn">Register </button>
-                                            </Link>
-                                        ):(
-                                            <Link to="/companyreg" style={{textDecoration:"none",color:"white"}}>
-                                                <button className="inbtn">Register </button>
-                                            </Link>
-                                        )):(<></>)} */}
-
-                {/* {user? ((user.isInvestor)? (
-                                            <Link to="/investorreg" style={{textDecoration:"none",color:"white"}}>
-                                                <button className="inbtn">Investor </button>
-                                            </Link>
-                                        ):(
-                                            <Link to="/companyreg" style={{textDecoration:"none",color:"white"}}>
-                                                <button className="inbtn">Company </button>
-                                            </Link>
-                                        )
-                        ):(
-                            <>
-                            <Link to="/" style={{textDecoration:"none",color:"white"}}>
-                                <button className="inbtn">Investor </button>
-                            </Link>
-                            <Link to="/" style={{textDecoration:"none",color:"white"}}>
-                                <button className="inbtn">Company </button>
-                            </Link>
-                            </>
-                        )
-                } */}
-                {/* <Link to="/investorreg" style={{textDecoration:"none",color:"white"}}>
-                <   button className="inbtn">Investor </button>
-                </Link>
-                <Link to="/companyreg" style={{textDecoration:"none",color:"white"}}>
-                <   button className="inbtn">Company </button>
-                </Link> */}
-                
                 </h1>
             </div>
             <div className="mright">

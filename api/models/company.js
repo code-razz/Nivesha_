@@ -9,6 +9,9 @@ const companySchema=new mongoose.Schema({
         type:String,
         required:true
     },
+    photo:{
+        type:String,
+    },
     email:{
         type:String,
         required:true,
@@ -28,7 +31,7 @@ const companySchema=new mongoose.Schema({
     },
     about:{
         type:String,
-        required:true
+        // required:true
     },
     outlets:{
         type:[String]
@@ -52,9 +55,6 @@ const companySchema=new mongoose.Schema({
         type:String
     },
     phone:{
-        type:String
-    },
-    about:{
         type:String
     },
     services:{

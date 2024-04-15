@@ -165,30 +165,6 @@ const handleSubmit = async (e) => {
                 </div>
               </td>
             </tr>
-            {/* <tr>
-              <td>Company Logo</td>
-              <td>
-                <input type="file" style={{ border: 0 }} />
-              </td>
-            </tr>
-            <tr>
-              <td>Registration Document</td>
-              <td>
-                <input type="file" style={{ border: 0 }} />
-              </td>
-            </tr>
-            <tr>
-              <td>Financial Report(LFY)</td>
-              <td>
-                <input type="file" style={{ border: 0 }} />
-              </td>
-            </tr>
-            <tr>
-              <td>Pitch(if any)</td>
-              <td>
-                <input type="file" style={{ border: 0 }} />
-              </td>
-            </tr> */}
           </tbody>
         </table>
       </div>
