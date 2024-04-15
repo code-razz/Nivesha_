@@ -37,35 +37,23 @@ function Feed(){
                                     <div className="row p-2 bg-white border rounded">
                                         <div className="col-md-3 mt-1">
                                         <img
-                                            className="img-fluid img-responsive rounded product-image"
-                                            src="https://i.imgur.com/QpjAiHq.jpg"
+                                            className="img-fluid img-responsive rounded product-image comp_image"
+                                            src={item.photo || "https://i.imgur.com/QpjAiHq.jpg"}
                                         />
                                         </div>
                                         <div className="col-md-6 mt-1">
                                         <h5>{item.name}</h5>
                                         <p>
-                                            {item.valuation}<span>!cr</span>
+                                            {item.valuation}<span> $</span>
                                         </p>
                                         <div className="mt-1 mb-1 spec-1">
-                                            <span>Headquarter:</span>
+                                            <span>Headquarter: </span>
                                             <span>{item.headquarter}</span>
                                             <br />
-                                            <span>Category:</span>
+                                            <span>Category: </span>
                                             <span>{item.type}</span>
                                             <br />
-                                            <span>Services Provided</span>
-                                            <br />
-                                            <span className="dot" />
-                                            <span>Best finish</span>
-                                            <span className="dot" />
-                                            <span>Unique design</span>
-                                            <span className="dot" />
-                                            <span>For men</span>
-                                            <span className="dot" />
-                                            <span>
-                                            Casual
-                                            <br />
-                                            </span>
+                                            
                                         </div>
                                         <p className="text-justify text-truncate para mb-0">
                                             {item.bio}

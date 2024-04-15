@@ -118,8 +118,8 @@ function FProfile() {
           <div className="card">
             <div className="card-body">
               <div className="d-flex flex-column align-items-center text-center">
-              {user.photo? (<img
-                              src={user.photo}
+              {data.photo? (<img
+                              src={data.photo}
                               alt="Admin"
                               className="rounded-circle"
                               width={150}

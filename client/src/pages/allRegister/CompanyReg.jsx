@@ -3,6 +3,7 @@ import './regis.css';
 import axios from 'axios';
 import { AuthContext } from '../../context/AuthContext';
 import { useNavigate } from 'react-router';
+import ImageUploadComponent from '../../components/ImageUpload';
 // import './Regis.js';
 
 function CompanyReg(){
@@ -18,6 +19,9 @@ function CompanyReg(){
 
       reload();
     }
+
+    const [imageUrl, setImageUrl] = useState('');
+
     const [formData, setFormData] = useState({
     name: undefined,
     type:undefined,
@@ -47,12 +51,19 @@ const handleChange = (e) => {
     // console.log(formData);
 };
 // console.log(user._id);
+const handleImageUploaded = (url) => {
+  setImageUrl(url); // Store the uploaded image URL in the state
+};
 
 const handleSubmit = async (e) => {
     e.preventDefault();
     try {
         // Send POST request to server
-        const res = await axios.post("http://localhost:8000/api/company",{...formData,userId:user._id});
+        const res = await axios.post("http://localhost:8000/api/company",{
+          ...formData,
+          userId:user._id,
+        photo:imageUrl
+      });
         console.log(res.data); // You can handle success response here
         navigate("/");
     } catch (error) {
@@ -141,6 +152,12 @@ const handleSubmit = async (e) => {
         </table>
         <table className="rright">
           <tbody>
+            <tr className='imageUpload'>
+            
+                    
+                    <ImageUploadComponent onImageUploaded={handleImageUploaded} />
+                
+            </tr>
             <tr>
               <td colSpan={2}>
                 <div className="field">

@@ -123,7 +123,7 @@ function Signup() {
                 <h3>NIVESHA</h3>
                 </div>
                 <div className='imageUpload'>
-                    
+                    handleImageUploaded
                     <ImageUploadComponent onImageUploaded={handleImageUploaded} />
                 </div>
                 <div className='formPart'>
