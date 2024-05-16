@@ -20,6 +20,7 @@ import FProfile from './pages/profile/FProfile.jsx';
 import About from './pages/about/About.jsx';
 import InvestorPage from './pages/investorCompany/Investorp.jsx';
 import CompanyPage from './pages/investorCompany/Companyp.jsx';
+import Feedback from './pages/feedback/feedback.jsx';
 
 
 
@@ -41,6 +42,7 @@ function App() {
         <Route path="/about" element={<About/>}/>
         <Route path="/investorp" element={<InvestorPage/>}/>
         <Route path="/companyp" element={<CompanyPage/>}/>
+        <Route path="/feedback" element={<Feedback/>}/>
       </Routes>
     </BrowserRouter>
   )

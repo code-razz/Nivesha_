@@ -41,6 +41,12 @@ function Header(){
                             </Link>
                             {/* <a href="#">Blog</a> */}
                         </li>
+                        <li>
+                            <Link to="/feedback" style={{textDecoration:"none",color:"black"}}>
+                                Feedback
+                            </Link>
+                            {/* <a href="#">Blog</a> */}
+                        </li>
                         
                             <div className="dropdown">
                             <li>Resourses</li>
