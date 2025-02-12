@@ -20,7 +20,7 @@ import FProfile from './pages/profile/FProfile.jsx';
 import About from './pages/about/About.jsx';
 import InvestorPage from './pages/investorCompany/Investorp.jsx';
 import CompanyPage from './pages/investorCompany/Companyp.jsx';
-import Feedback from './pages/feedback/feedback.jsx';
+import Feedback from './pages/feedback/Feedback.jsx';
 
 
 
