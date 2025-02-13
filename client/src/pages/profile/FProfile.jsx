@@ -18,7 +18,7 @@ function FProfile() {
   const data=location.state.item
 
   const {user}=useContext(AuthContext);
-  const {data:investorData,loading,error}=useFetch(`http://localhost:8000/api/investor/uinvest/${user._id}`);
+  const {data:investorData,loading,error}=useFetch(`${import.meta.env.VITE_API_BASE_URL}/api/investor/uinvest/${user._id}`);
 
 
   if(loading){
@@ -85,7 +85,7 @@ function FProfile() {
     // console.log(formData);
       try{
           // Send POST request to server
-          const res = await axios.post("http://localhost:8000/api/pullreq",{...formData,investorName:investorData.name,investorId:investorData._id});
+          const res = await axios.post("${import.meta.env.VITE_API_BASE_URL}/api/pullreq",{...formData,investorName:investorData.name,investorId:investorData._id});
           console.log(res.data); // You can handle success response here
           alert("pull request sent to the company");
       }catch (error) {

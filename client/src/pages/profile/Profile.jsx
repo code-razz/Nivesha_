@@ -22,15 +22,15 @@ function Profile() {
   if(user.isCompany){
     innerUrl="company/ucom"; 
     pullUrl="comp";
-    // investCompUrl="http://localhost:8000/api/investor"
+    // investCompUrl="${import.meta.env.VITE_API_BASE_URL}/api/investor"
   }else{
     innerUrl="investor/uinvest"; 
     pullUrl="invest";
   }
   //data of company or investor
-  const {data,loading,error}=useFetch(`http://localhost:8000/api/${innerUrl}/${user._id}`);
+  const {data,loading,error}=useFetch(`${import.meta.env.VITE_API_BASE_URL}/api/${innerUrl}/${user._id}`);
   let dataID=(data)?data._id : user._id;
-  const {data:pData,loading:ploading}=useFetch(`http://localhost:8000/api/pullreq/${pullUrl}/${dataID}`);
+  const {data:pData,loading:ploading}=useFetch(`${import.meta.env.VITE_API_BASE_URL}/api/pullreq/${pullUrl}/${dataID}`);
 
   if ( loading || ploading || pData==undefined || pData==null) {
     return <div>Loading...</div>;
@@ -48,7 +48,7 @@ function Profile() {
     // e.preventDefault();
     try {
       // Send POST request to server
-      const res = await axios.delete(`http://localhost:8000/api/users/${userId}`);
+      const res = await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/users/${userId}`);
       console.log(res.data); // You can handle success response here
       dispatch({type:"LOGOUT"});
       navigate("/");

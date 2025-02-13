@@ -51,7 +51,7 @@ const handleSubmit = async (e) => {
     e.preventDefault();
     try {
         // Send POST request to server
-        const res = await axios.post("http://localhost:8000/api/investor",{...formData,userId:user._id});
+        const res = await axios.post("${import.meta.env.VITE_API_BASE_URL}/api/investor",{...formData,userId:user._id});
         console.log(res.data); // You can handle success response here
         navigate("/");
     } catch (error) {

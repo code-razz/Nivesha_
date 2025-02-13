@@ -18,7 +18,7 @@ function Feed(){
         navigate('/fprofile',{state:{item}});
     };
 
-    const {data,loading,error}=useFetch("http://localhost:8000/api/company");
+    const {data,loading,error}=useFetch(`${import.meta.env.VITE_API_BASE_URL}/api/company`);
 
     return(
         <>

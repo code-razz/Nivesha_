@@ -24,7 +24,7 @@ function Login(){
       e.preventDefault();
       dispatch({type:"LOGIN_START"})
       try{
-          const res=await axios.post("http://localhost:8000/api/auth/login", credentials);
+          const res=await axios.post("${import.meta.env.VITE_API_BASE_URL}/api/auth/login", credentials);
           dispatch({type:"LOGIN_SUCCESS",payload:res.data})   // res.data::Because when the login is success, our api (i.e. backend) return all the user info
 
           navigate("/");
